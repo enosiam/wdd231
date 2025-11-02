@@ -1,0 +1,19 @@
+@media (min-width: 48rem) {
+  .primary-nav { display: block; }
+  .primary-nav ul { flex-direction: row; gap: 1rem; }
+  .nav-toggle { display: none; }
+  .course-list { grid-template-columns: repeat(2, 1fr); }
+  .site-footer { grid-template-columns: repeat(3, 1fr); }
+}
+
+@media (min-width: 64rem) {
+  .course-list { grid-template-columns: repeat(3, 1fr); }
+}
+:root {
+  --bg: #f7f7f8;
+  --card: #ffffff;
+  --accent: #0b6cf0;
+  --muted: #556;
+  --max-width: 1200px;
+  font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, Arial;
+}
