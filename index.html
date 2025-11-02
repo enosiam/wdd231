@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="WDD231 Home Page - Emmanuel Eno Effiong">
+  <meta name="author" content="Emmanuel Eno Effiong">
+  <title>WDD231 | Home Page</title>
+
+  <!-- CSS Files -->
+  <link rel="stylesheet" href="styles/small.css">
+  <link rel="stylesheet" href="styles/larger.css">
+
+  <!-- JavaScript Files -->
+  <script src="scripts/navigation.js" defer></script>
+  <script src="scripts/date.js" defer></script>
+  <script src="scripts/course.js" defer></script>
+</head>
+
+<body>
+  <header class="site-header">
+    <div class="header-inner wrap">
+      <a href="index.html" class="logo">
+        <img src="images/logo.svg" alt="Site logo" width="40" height="40">
+        <span class="site-name">Emmanuel Eno Effiong</span>
+      </a>
+
+      <button id="navToggle" class="nav-toggle" aria-expanded="false" aria-controls="primary-nav">
+        <span class="hamburger"></span>
+      </button>
+
+      <nav id="primary-nav" class="primary-nav">
+        <ul>
+          <li><a href="index.html" class="active">Home</a></li>
+          <li><a href="chamber/">Chamber</a></li>
+          <li><a href="final/">Final</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <h1>Home</h1>
+
+    <section class="hero">
+      <h2>Welcome</h2>
+      <p>Hello! I’m Emmanuel Eno Effiong, and this website is part of my WDD231: Web Frontend Development II course. This project represents my journey in learning how to design and build modern, responsive websites using HTML, CSS, and JavaScript. Through this and future projects, I aim to strengthen my web development skills, create user-friendly designs, and apply best practices in accessibility, performance, and SEO.</p>
+      <img src="images/Profile.jpg" alt="Decorative hero" loading="lazy">
+    </section>
+
+    <section id="courses" class="courses">
+      <h2>Certificate Courses</h2>
+
+      <div class="controls">
+        <button data-filter="all" class="filter-btn">All Courses</button>
+        <button data-filter="wdd" class="filter-btn">WDD Courses</button>
+        <button data-filter="cse" class="filter-btn">CSE Courses</button>
+        <span id="credits">Credits: 0</span>
+      </div>
+
+      <div id="courseList" class="course-list" aria-live="polite"></div>
+    </section>
+
+    <section class="about">
+      <h2>About</h2>
+      <p>Hi! My name is Emmanuel Eno Effiong. I’m a web development student who enjoys creating modern, responsive, and user-friendly websites. I’m passionate about learning how to combine design and functionality to make great user experiences.
+
+      During this course, I’ll be building several exciting projects — including a Chamber of Commerce website, which focuses on community and business connections, and a Final Project, where I’ll apply everything I’ve learned to design and develop a complete, professional-quality website. Each project will help me strengthen my skills in HTML, CSS, and JavaScript, while learning best practices for accessibility, SEO, and responsive design.</p>
+    </section>
+  </main>
+
+  <footer class="site-footer wrap">
+    <div class="footer-col">
+      <p>
+        <a href="https://github.com/enosiam" aria-label="Github profile">GitHub</a>
+        &nbsp;•&nbsp;
+        <a href="https://linkedin.com/in/emmamueleffiong" aria-label="LinkedIn profile">LinkedIn</a>
+      </p>
+    </div>
+
+    <div class="footer-col">
+      <p>&copy; <span id="copyrightYear"></span> Emmanuel Eno Effiong — Nigeria</p>
+    </div>
+
+    <div class="footer-col">
+      <p id="lastModified">Last modified: </p>
+    </div>
+  </footer>
+</body>
+</html>
