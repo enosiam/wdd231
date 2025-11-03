@@ -1,0 +1,39 @@
+/* base.css - mobile first styles */
+:root{
+  --bg: #f7f7f8;
+  --card: #ffffff;
+  --accent: #0b6cf0;
+  --muted: #333;
+  --max-width: 1100px;
+  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Inter', Arial;
+}
+*{box-sizing:border-box}
+html,body{height:100%;margin:0;padding:0;background:var(--bg);color:var(--muted)}
+.wrap{max-width:var(--max-width);margin:0 auto;padding:1rem}
+.header-inner{display:flex;align-items:center;justify-content:space-between;gap:1rem}
+.logo{display:flex;align-items:center;gap:.5rem;text-decoration:none;color:inherit}
+.site-name{font-weight:700}
+.nav-toggle{background:none;border:0;padding:.5rem;cursor:pointer}
+.hamburger{display:block;width:28px;height:2px;background:#222;position:relative}
+.hamburger::before,.hamburger::after{content:'';position:absolute;left:0;width:28px;height:2px;background:#222}
+.hamburger::before{top:-8px}
+.hamburger::after{top:8px}
+.primary-nav{display:none}
+.primary-nav ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:.25rem}
+.primary-nav a{text-decoration:none;padding:.5rem 0;display:block;color:inherit}
+.primary-nav a.active{color:var(--accent);font-weight:700;border-bottom:2px solid var(--accent);padding-bottom:.25rem}
+.hero{background:var(--card);padding:1rem;border-radius:8px;margin:1rem 0}
+.view-controls{display:flex;gap:.5rem;margin:1rem 0}
+.view-btn{padding:.5rem .75rem;border:1px solid transparent;background:transparent;cursor:pointer}
+.view-btn[aria-pressed="true"]{background:var(--accent);color:#fff;border-radius:6px}
+.member-container{display:grid;grid-template-columns:1fr;gap:1rem}
+.member-container.grid-view{grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
+.member-container.list-view{grid-template-columns:1fr}
+.member-card{background:var(--card);padding:1rem;border:1px solid #e6e6e6;border-radius:8px;display:flex;flex-direction:column;gap:.5rem}
+.member-card.list{flex-direction:row;align-items:center}
+.member-card img{width:100%;height:auto;border-radius:6px}
+.member-meta{display:flex;flex-direction:column;gap:.25rem}
+.member-membership{font-weight:700;color:var(--accent)}
+.controls-row{display:flex;justify-content:space-between;align-items:center;gap:1rem;margin:1rem 0}
+.site-footer{display:grid;grid-template-columns:1fr;gap:1rem;padding:1rem 0;border-top:1px solid #e6e6e6;margin-top:2rem}
+button:focus,a:focus{outline:3px solid Highlight;outline-offset:2px}

@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Directory | Lagos Chamber of Commerce</title>
+  <meta name="description" content="Member directory for the Lagos Chamber of Commerce">
+  <meta name="author" content="Emmanuel Eno Effiong">
+
+  <!-- Social / Open Graph -->
+  <meta property="og:title" content="Lagos Chamber Directory">
+  <meta property="og:description" content="Discover and connect with local businesses in our chamber community.">
+  <meta property="og:image" content="images/og-image.svg">
+  <meta property="og:url" content="https://yourgithubusername.github.io/wdd231/chamber/directory.html">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Lagos Chamber Directory">
+  <meta name="twitter:description" content="Discover and connect with local businesses in our chamber community.">
+  <meta name="twitter:image" content="images/og-image.svg">
+
+  <!-- Favicon -->
+  <link rel="icon" href="favicon/favicon.ico" type="image/x-icon">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/larger.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a href="index.html" class="logo" aria-label="Lagos Chamber Home">
+        <img src="images/logo.jpg" alt="Lagos Chamber logo" width="48" height="48">
+        <span class="site-name">Lagos Chamber of Commerce</span>
+      </a>
+
+      <button id="menuButton" class="nav-toggle" aria-expanded="false" aria-controls="mainNav" aria-label="Toggle navigation">
+        <span class="hamburger"></span>
+      </button>
+
+      <nav id="mainNav" class="primary-nav" aria-label="Main navigation">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="directory.html" class="active">Directory</a></li>
+          <li><a href="#">Join</a></li>
+          <li><a href="#">Discover</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <h1>Member Directory</h1>
+
+    <div class="view-controls">
+      <button id="gridView" class="view-btn" aria-pressed="true">Grid View</button>
+      <button id="listView" class="view-btn" aria-pressed="false">List View</button>
+    </div>
+
+    <section id="memberContainer" class="member-container grid-view" aria-live="polite" aria-label="Member directory"></section>
+  </main>
+
+  <footer class="site-footer wrap">
+    <div class="footer-col">
+      <p>Contact: info@lagoschamber.ng | +234-800-000-0000</p>
+    </div>
+    <div class="footer-col">
+      <p>&copy; <span id="year"></span> Emmanuel Eno Effiong — WDD 231</p>
+    </div>
+    <div class="footer-col">
+      <p id="lastModified">Last modified: </p>
+    </div>
+  </footer>
+
+  <!-- JS files -->
+  <script src="scripts/main.js" defer></script>
+  <script src="scripts/directory.js" defer></script>
+</body>
+</html>

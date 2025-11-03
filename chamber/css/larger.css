@@ -1,0 +1,10 @@
+@media (min-width:48rem){
+  .primary-nav{display:block}
+  .primary-nav ul{flex-direction:row;gap:1rem}
+  .nav-toggle{display:none}
+  .member-container{grid-template-columns:repeat(2,1fr)}
+  .site-footer{grid-template-columns:repeat(3,1fr)}
+}
+@media (min-width:64rem){
+  .member-container{grid-template-columns:repeat(3,1fr)}
+}

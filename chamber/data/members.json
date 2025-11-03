@@ -1,0 +1,65 @@
+[
+  {
+    "name": "BrightTech Solutions",
+    "address": "12 Innovation Drive, Lagos",
+    "phone": "+234 800 123 4567",
+    "website": "https://brighttech.ng",
+    "image": "brighttech.svg",
+    "membership": 3,
+    "credits": 3
+  },
+  {
+    "name": "Eco Builders",
+    "address": "45 Greenway Ave, Lagos",
+    "phone": "+234 900 555 7890",
+    "website": "https://ecobuilders.ng",
+    "image": "ecobuilders.svg",
+    "membership": 2,
+    "credits": 2
+  },
+  {
+    "name": "Culinary Corner",
+    "address": "88 Food St, Lagos",
+    "phone": "+234 700 321 9876",
+    "website": "https://culinarycorner.ng",
+    "image": "culinary.svg",
+    "membership": 1,
+    "credits": 1
+  },
+  {
+    "name": "AquaPure Systems",
+    "address": "3 Water Lane, Lagos",
+    "phone": "+234 800 444 1100",
+    "website": "https://aquapure.ng",
+    "image": "aquapure.svg",
+    "membership": 3,
+    "credits": 4
+  },
+  {
+    "name": "GreenLeaf Farms",
+    "address": "22 Farm Road, Lagos",
+    "phone": "+234 701 555 2020",
+    "website": "https://greenleaf.ng",
+    "image": "greenleaf.svg",
+    "membership": 2,
+    "credits": 2
+  },
+  {
+    "name": "Nimbus Logistics",
+    "address": "100 Cargo Blvd, Lagos",
+    "phone": "+234 802 999 8080",
+    "website": "https://nimbuslogistics.ng",
+    "image": "nimbus.svg",
+    "membership": 1,
+    "credits": 3
+  },
+  {
+    "name": "StudioPixel",
+    "address": "7 Design Ave, Lagos",
+    "phone": "+234 803 111 2233",
+    "website": "https://studiopixel.ng",
+    "image": "studiopixel.svg",
+    "membership": 3,
+    "credits": 3
+  }
+]
