@@ -42,6 +42,10 @@ html, body {
 .primary-nav.open { display: block; }
 .primary-nav ul { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: .25rem; }
 .primary-nav a { text-decoration: none; padding: .5rem 0; display: block; color: inherit; }
+.primary-nav a.active {
+  color: var(--accent);
+  font-weight: 600;
+}
 
 /* HERO */
 .hero { background: var(--card); padding: 1rem; border-radius: 8px; margin: 1rem 0; }
