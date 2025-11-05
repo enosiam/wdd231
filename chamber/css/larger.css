@@ -1,10 +1,31 @@
-@media (min-width:48rem){
-  .primary-nav{display:block}
-  .primary-nav ul{flex-direction:row;gap:1rem}
-  .nav-toggle{display:none}
-  .member-container{grid-template-columns:repeat(2,1fr)}
-  .site-footer{grid-template-columns:repeat(3,1fr)}
+/* Larger Screens */
+@media (min-width: 700px) {
+
+  /* Show navigation by default on large screens */
+  .nav {
+    display: block !important;
+  }
+
+  #menuBtn {
+    display: none;
+  }
+
+  .nav ul {
+    display: flex;
+    gap: 1rem;
+  }
+
+  .nav a {
+    padding: .5rem 1rem;
+  }
+
+  /* Directory Layout - default to grid on large screens */
+  #memberContainer.grid-view {
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  }
+
+  .list-view .member-card {
+    flex-direction: row;
+  }
 }
-@media (min-width:64rem){
-  .member-container{grid-template-columns:repeat(3,1fr)}
-}
+

@@ -1,80 +1,65 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Directory | Lagos Chamber of Commerce</title>
-  <meta name="description" content="Member directory for the Lagos Chamber of Commerce">
-  <meta name="author" content="Emmanuel Eno Effiong">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <!-- Social / Open Graph -->
-  <meta property="og:title" content="Lagos Chamber Directory">
-  <meta property="og:description" content="Discover and connect with local businesses in our chamber community.">
-  <meta property="og:image" content="images/og-image.svg">
-  <meta property="og:url" content="https://yourgithubusername.github.io/wdd231/chamber/directory.html">
+    <title>Chamber of Commerce - Member Directory</title>
+    <meta name="description" content="Business member directory for the Chamber of Commerce.">
+    <meta name="author" content="Emmanuel Eno Effiong">
 
-  <!-- Twitter Card -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Lagos Chamber Directory">
-  <meta name="twitter:description" content="Discover and connect with local businesses in our chamber community.">
-  <meta name="twitter:image" content="images/og-image.svg">
+    <!-- Favicon -->
+    <link rel="icon" href="favicon/favicon.ico" type="image/x-icon">
 
-  <!-- Favicon -->
-  <link rel="icon" href="favicon/favicon.ico" type="image/x-icon">
+    <!-- Social Media Meta (Open Graph) -->
+    <meta property="og:title" content="Chamber of Commerce Directory" />
+    <meta property="og:description" content="Discover and connect with local businesses in our Chamber of Commerce." />
+    <meta property="og:image" content="images/logo.png" />
+    <meta property="og:url" content="https://your-chamber-site-url.com" />
+    <meta property="og:type" content="website" />
 
-  <!-- CSS -->
-  <link rel="stylesheet" href="css/normalize.css">
-  <link rel="stylesheet" href="css/base.css">
-  <link rel="stylesheet" href="css/larger.css">
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/larger.css">
 </head>
+
 <body>
-  <header class="site-header">
-    <div class="wrap header-inner">
-      <a href="index.html" class="logo" aria-label="Lagos Chamber Home">
-        <img src="images/logo.jpg" alt="Lagos Chamber logo" width="48" height="48">
-        <span class="site-name">Lagos Chamber of Commerce</span>
-      </a>
+<header class="site-header">
+    <div class="header-inner">
+        <h1 class="logo">Chamber of Commerce</h1>
 
-      <button id="menuButton" class="nav-toggle" aria-expanded="false" aria-controls="mainNav" aria-label="Toggle navigation">
-        <span class="hamburger"></span>
-      </button>
+        <button id="menuBtn" aria-label="Menu Button">☰</button>
 
-      <nav id="mainNav" class="primary-nav" aria-label="Main navigation">
-        <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="directory.html" class="active">Directory</a></li>
-          <li><a href="#">Join</a></li>
-          <li><a href="#">Discover</a></li>
-        </ul>
-      </nav>
+        <nav class="nav" id="primaryNav">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="directory.html" class="active">Directory</a></li>
+                <li><a href="discover.html">Discover</a></li>
+                <li><a href="join.html">Join</a></li>
+            </ul>
+        </nav>
     </div>
-  </header>
+</header>
 
-  <main class="wrap">
-    <h1>Member Directory</h1>
+<main class="wrap">
+    <h2>Member Directory</h2>
 
-    <div class="view-controls">
-      <button id="gridView" class="view-btn" aria-pressed="true">Grid View</button>
-      <button id="listView" class="view-btn" aria-pressed="false">List View</button>
+    <div class="view-toggle">
+        <button id="gridBtn">Grid View</button>
+        <button id="listBtn">List View</button>
     </div>
 
-    <section id="memberContainer" class="member-container grid-view" aria-live="polite" aria-label="Member directory"></section>
-  </main>
+    <div id="memberContainer" class="grid-view"></div>
+</main>
 
-  <footer class="site-footer wrap">
-    <div class="footer-col">
-      <p>Contact: @emmanueleffiong149@gmail.com | +234-8130-15-3731</p>
-    </div>
-    <div class="footer-col">
-      <p>&copy; <span id="year"></span> Emmanuel Eno Effiong — WDD 231</p>
-    </div>
-    <div class="footer-col">
-      <p id="lastModified">Last modified: </p>
-    </div>
-  </footer>
+<footer class="site-footer wrap">
+    <p>&copy; <span id="copyrightYear"></span> | Chamber of Commerce | WDD 231</p>
+    <p id="lastModified"></p>
+</footer>
 
-  <!-- JS files -->
-  <script src="scripts/main.js" defer></script>
-  <script src="scripts/directory.js" defer></script>
+<!-- JavaScript -->
+<script src="js/footer.js"></script>
+<script src="js/directory.js"></script>
+
 </body>
 </html>

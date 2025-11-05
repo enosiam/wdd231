@@ -1,0 +1,50 @@
+// ✅ Toggle Menu for Mobile
+const menuBtn = document.getElementById("menuBtn");
+const nav = document.querySelector(".nav");
+
+menuBtn.addEventListener("click", () => {
+  nav.style.display = nav.style.display === "block" ? "none" : "block";
+});
+
+// ✅ Fetch and Display Members
+const memberContainer = document.querySelector("#memberContainer");
+const jsonURL = "data/members.json";
+
+async function getMembers() {
+  const response = await fetch(jsonURL);
+  const data = await response.json();
+  displayMembers(data.members);
+}
+
+function displayMembers(members) {
+  members.forEach(member => {
+    let card = document.createElement("section");
+    card.classList.add("member-card");
+
+    card.innerHTML = `
+      <img src="images/${member.image}" alt="${member.name}">
+      <h3>${member.name}</h3>
+      <p>${member.address}</p>
+      <p>${member.phone}</p>
+      <a href="${member.website}" target="_blank">Visit Website</a>
+    `;
+
+    memberContainer.appendChild(card);
+  });
+}
+
+getMembers();
+
+// ✅ Grid/List Toggle
+const gridBtn = document.querySelector("#gridBtn");
+const listBtn = document.querySelector("#listBtn");
+
+gridBtn.addEventListener("click", () => {
+  memberContainer.classList.add("grid-view");
+  memberContainer.classList.remove("list-view");
+});
+
+listBtn.addEventListener("click", () => {
+  memberContainer.classList.add("list-view");
+  memberContainer.classList.remove("grid-view");
+});
