@@ -1,39 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chamber of Commerce - Directory</title>
+  <meta name="description" content="Directory of local businesses in the Chamber of Commerce.">
+  <meta name="author" content="Emmanuel Eno Effiong">
 
-    <title>Chamber of Commerce - Member Directory</title>
-    <meta name="description" content="Business member directory for the Chamber of Commerce.">
-    <meta name="author" content="Emmanuel Eno Effiong">
+  <link rel="icon" href="favicon/favicon.ico">
 
-    <!-- Favicon -->
-    <link rel="icon" href="favicon/favicon.ico" type="image/x-icon">
+  <!-- Social Media Meta -->
+  <meta property="og:title" content="Chamber of Commerce Directory">
+  <meta property="og:description" content="Discover and connect with local businesses in our community.">
+  <meta property="og:image" content="images/logo.png">
+  <meta property="og:url" content="#">
+  <meta property="og:type" content="website">
 
-    <!-- Social Media Meta (Open Graph) -->
-    <meta property="og:title" content="Chamber of Commerce Directory" />
-    <meta property="og:description" content="Discover and connect with local businesses in our Chamber of Commerce." />
-    <meta property="og:image" content="images/logo.png" />
-    <meta property="og:url" content="https://your-chamber-site-url.com" />
-    <meta property="og:type" content="website" />
-
-    <!-- CSS Files -->
-    <link rel="stylesheet" href="css/base.css">
-    <link rel="stylesheet" href="css/larger.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/larger.css">
 </head>
 
 <body>
+
 <header class="site-header">
-    <div class="header-inner">
+    <div class="header-inner wrap">
         <h1 class="logo">Chamber of Commerce</h1>
 
-        <button id="menuBtn" aria-label="Menu Button">☰</button>
+        <button id="menuBtn" aria-label="Open Menu">☰</button>
 
         <nav class="nav" id="primaryNav">
             <ul>
                 <li><a href="index.html">Home</a></li>
-                <li><a href="directory.html" class="active">Directory</a></li>
+                <li><a class="active" href="directory.html">Directory</a></li>
                 <li><a href="discover.html">Discover</a></li>
                 <li><a href="join.html">Join</a></li>
             </ul>
@@ -42,24 +40,26 @@
 </header>
 
 <main class="wrap">
-    <h2>Member Directory</h2>
 
-    <div class="view-toggle">
-        <button id="gridBtn">Grid View</button>
-        <button id="listBtn">List View</button>
-    </div>
+  <h2>Member Directory</h2>
 
-    <div id="memberContainer" class="grid-view"></div>
+  <div class="view-toggle">
+    <button id="gridBtn">Grid View</button>
+    <button id="listBtn">List View</button>
+  </div>
+
+  <div id="memberContainer" class="grid-view"></div>
+
 </main>
 
-<footer class="site-footer wrap">
-    <p>&copy; <span id="copyrightYear"></span> | Chamber of Commerce | WDD 231</p>
-    <p id="lastModified"></p>
+<footer class="site-footer">
+  <p>&copy; <span id="copyrightYear"></span> | Chamber of Commerce | WDD 231</p>
+  <p id="lastModified"></p>
 </footer>
 
-<!-- JavaScript -->
 <script src="js/footer.js"></script>
 <script src="js/directory.js"></script>
 
 </body>
 </html>
+
