@@ -16,7 +16,7 @@ function renderMembers(members) {
   const container = document.getElementById('memberContainer');
   container.innerHTML = members.map(m => memberCardHTML(m)).join('');
 
-  // wire up any links (nothing extra needed)
+  // wire up any links 
   updateCredits(members);
 
   // set up list/grid toggle already handled by main script buttons
@@ -26,7 +26,7 @@ function memberCardHTML(m) {
   const membershipText = m.membership === 3 ? 'Gold' : m.membership === 2 ? 'Silver' : 'Member';
   return `
     <article class="member-card" tabindex="0" aria-label="${m.name}">
-      <img src="images/${m.image}" alt="${m.name} logo">
+      <img src="images/logo.jpg" alt="${m.name} logo">
       <div class="member-meta">
         <h3>${m.name}</h3>
         <p>${m.address}</p>
