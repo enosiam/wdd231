@@ -11,17 +11,51 @@ body {
 .wrap { max-width: 1100px; margin: auto; padding: 1rem; }
 
 /* HEADER */
-.site-header { display: flex; justify-content: space-between; align-items: center; background: #004d7a; color: #fff; }
-#menuBtn { font-size: 2rem; background: none; border: none; color: white; cursor: pointer; }
+.site-header { 
+  display: flex; 
+  justify-content: space-between; 
+  align-items: center; 
+  background: #004d7a; 
+  color: #fff; 
+  padding: 1rem; 
+}
 
-.nav { display: none; }
+#menuBtn { 
+  font-size: 2rem; 
+  background: none; 
+  border: none; 
+  color: white; 
+  cursor: pointer; 
+}
+
+/* NAV */
+.nav { 
+  display: none; 
+  background: #00385a; 
+}
+.nav-show { 
+  display: block; 
+}
+
 .nav ul { list-style: none; }
-.nav a { color: white; text-decoration: none; padding: .5rem; display: block; }
+.nav a { 
+  color: white; 
+  text-decoration: none; 
+  padding: .5rem; 
+  display: block; 
+}
 .nav a.active { border-bottom: 2px solid gold; }
 
 /* VIEW TOGGLE */
-.view-toggle { margin: 1rem 0; display: flex; gap: .5rem; }
-.view-toggle button { padding: .5rem 1rem; cursor: pointer; }
+.view-toggle { 
+  margin: 1rem 0; 
+  display: flex; 
+  gap: .5rem; 
+}
+.view-toggle button { 
+  padding: .5rem 1rem; 
+  cursor: pointer; 
+}
 
 /* GRID VIEW */
 #memberContainer.grid-view {
@@ -30,12 +64,53 @@ body {
   gap: 1rem;
 }
 
-.member-card { background: white; padding: 1rem; border-radius: 6px; text-align: center; }
+.member-card { 
+  background: white; 
+  padding: 1rem; 
+  border-radius: 6px; 
+  text-align: center; 
+  border: 1px solid #ccc;
+}
+
+/* IMAGE STYLE */
+.member-img {
+  width: 100px;
+  height: auto;
+  margin-bottom: .5rem;
+  border-radius: 6px;
+}
 
 /* LIST VIEW */
 #memberContainer.list-view { display: block; }
-#memberContainer.list-view .member-card img { display: none; }
-#memberContainer.list-view .member-card { text-align: left; }
+#memberContainer.list-view .member-card {
+  text-align: left;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  border-bottom: 1px solid #ccc;
+  padding: .75rem 0;
+}
+#memberContainer.list-view .member-card .member-img {
+  display: none; /* Hide images in list view */
+}
+
+/* MEMBERSHIP BADGES */
+.membership-tag {
+  display: inline-block;
+  margin-top: .5rem;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 0.85rem;
+  font-weight: bold;
+}
+.membership-tag.gold { background: gold; color: #111; }
+.membership-tag.silver { background: silver; color: #222; }
+.membership-tag.bronze { background: #cd7f32; color: white; }
 
 /* FOOTER */
-.site-footer { text-align: center; padding: 1rem 0; margin-top: 2rem; background: #ddd; }
+.site-footer { 
+  text-align: center; 
+  padding: 1rem 0; 
+  margin-top: 2rem; 
+  background: #ddd; 
+}

@@ -1,30 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Timbuktu Chamber of Commerce - Directory</title>
-    <meta name="description" content="Business member directory for the Timbuktu Chamber of Commerce.">
+    <meta name="description" content="Browse and connect with businesses, organizations, and services that support the economic growth and community development of Timbuktu.">
     <meta name="author" content="Emmanuel Eno Effiong">
 
     <!-- Favicon -->
-    <link rel="icon" href="favicon/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
 
-    <!-- Social Media Meta (Open Graph) -->
-    <meta property="og:title" content="Timbuktu Chamber of Commerce">
-    <meta property="og:description" content="Connect with local businesses in Timbuktu.">
-    <meta property="og:image" content="images/logo.png">
-    <meta property="og:url" content="https://your-chamber-site-url.com">
+    <!-- Social Media Open Graph -->
+    <meta property="og:title" content="Timbuktu Chamber of Commerce - Member Directory">
+    <meta property="og:description" content="Discover trusted local businesses and organizations in Timbuktu through our verified chamber directory. Grow, connect, and thrive with our community.">
+    <meta property="og:image" content="https://enosiam.github.io/wdd231/chamber/images/logo.png">
+    <meta property="og:url" content="https://enosiam.github.io/wdd231/chamber/directory.html">
 
-    <!-- CSS -->
+    <!-- Google Font Required (No @import allowed) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+
+    <!-- CSS Files -->
     <link rel="stylesheet" href="styles/base.css">
     <link rel="stylesheet" href="styles/larger.css">
 </head>
 
 <body>
+
 <header class="site-header wrap">
-    <h1>Timbuktu Chamber of Commerce</h1>
+    <p class="logo-text">Timbuktu Chamber of Commerce</p>
     <button id="menuBtn">☰</button>
 
     <nav id="primaryNav" class="nav">
@@ -38,7 +44,7 @@
 </header>
 
 <main class="wrap">
-    <h2>Member Directory</h2>
+    <h1>Member Directory</h1>
 
     <div class="view-toggle">
         <button id="gridBtn">Grid View</button>
@@ -52,9 +58,9 @@
     <p>&copy; <span id="copyrightYear"></span> | Timbuktu Chamber of Commerce | WDD 231 | <span id="lastModified"></span></p>
 </footer>
 
-<!-- JS -->
-<script src="scripts/footer.js"></script>
-<script src="scripts/directory.js"></script>
+<!-- JavaScript -->
+<script src="scripts/footer.js" defer></script>
+<script src="scripts/directory.js" defer></script>
 
 </body>
 </html>
