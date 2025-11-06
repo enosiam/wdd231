@@ -1,37 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Chamber of Commerce - Directory</title>
-  <meta name="description" content="Directory of local businesses in the Chamber of Commerce.">
-  <meta name="author" content="Emmanuel Eno Effiong">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <link rel="icon" href="favicon/favicon.ico">
+    <title>Timbuktu Chamber of Commerce - Member Directory</title>
+    <meta name="description" content="Explore local businesses in the Timbuktu Chamber of Commerce.">
 
-  <!-- Social Media Meta -->
-  <meta property="og:title" content="Chamber of Commerce Directory">
-  <meta property="og:description" content="Discover and connect with local businesses in our community.">
-  <meta property="og:image" content="images/logo.png">
-  <meta property="og:url" content="#">
-  <meta property="og:type" content="website">
-
-  <link rel="stylesheet" href="css/base.css">
-  <link rel="stylesheet" href="css/larger.css">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/larger.css">
 </head>
 
 <body>
-
 <header class="site-header">
     <div class="header-inner wrap">
-        <h1 class="logo">Chamber of Commerce</h1>
+        <h1 class="logo">Timbuktu Chamber</h1>
 
-        <button id="menuBtn" aria-label="Open Menu">☰</button>
+        <button id="menuBtn" aria-label="Open Navigation Menu">☰</button>
 
         <nav class="nav" id="primaryNav">
             <ul>
                 <li><a href="index.html">Home</a></li>
-                <li><a class="active" href="directory.html">Directory</a></li>
+                <li><a href="directory.html" class="active">Directory</a></li>
                 <li><a href="discover.html">Discover</a></li>
                 <li><a href="join.html">Join</a></li>
             </ul>
@@ -40,26 +30,24 @@
 </header>
 
 <main class="wrap">
+    <h2>Business Member Directory</h2>
 
-  <h2>Member Directory</h2>
+    <div class="view-toggle">
+        <button id="gridBtn">Grid View</button>
+        <button id="listBtn">List View</button>
+    </div>
 
-  <div class="view-toggle">
-    <button id="gridBtn">Grid View</button>
-    <button id="listBtn">List View</button>
-  </div>
-
-  <div id="memberContainer" class="grid-view"></div>
-
+    <div id="memberContainer" class="grid-view"></div>
 </main>
 
 <footer class="site-footer">
-  <p>&copy; <span id="copyrightYear"></span> | Chamber of Commerce | WDD 231</p>
-  <p id="lastModified"></p>
+    <p>&copy; <span id="year"></span> Timbuktu Chamber of Commerce</p>
+    <p id="lastModified"></p>
 </footer>
 
 <script src="js/footer.js"></script>
 <script src="js/directory.js"></script>
-
 </body>
 </html>
+
 

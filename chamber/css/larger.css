@@ -1,20 +1,10 @@
 @media (min-width: 700px) {
-  .nav { display: block !important; }
-  #menuBtn { display: none; }
+    .nav { display: block !important; }
+    #menuBtn { display: none; }
 
-  #memberContainer.grid-view {
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  }
-}
-#directory .member-card {
-  background: var(--card-bg);
-  border: 1px solid var(--border-color);
-  padding: 1rem;
-  border-radius: 8px;
-  transition: transform .2s, box-shadow .2s;
+    .nav ul {
+        display: flex;
+        gap: 1rem;
+    }
 }
 
-#directory .member-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
