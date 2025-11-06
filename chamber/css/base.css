@@ -1,106 +1,54 @@
-/* Reset */
-* { margin: 0; padding: 0; box-sizing: border-box; }
-
-body {
-    font-family: system-ui, sans-serif;
-    background: #f2f4f8;
-    color: #222;
+:root{
+  --bg: #f7f9fb;
+  --card: #ffffff;
+  --accent: #155E75;    /* teal-blue */
+  --accent-2: #FBBF24;  /* amber */
+  --muted: #333333;
+  --max-width: 1100px;
+  --shadow: rgba(0,0,0,0.06);
+  font-family: 'Poppins', system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
 }
 
-.wrap {
-    max-width: 1100px;
-    margin: auto;
-    padding: 1rem;
-}
+/* Reset helpers */
+*{box-sizing:border-box}
+html,body{height:100%;margin:0;padding:0;background:var(--bg);color:var(--muted);}
+
+/* Layout */
+.wrap{max-width:var(--max-width);margin:0 auto;padding:1rem;}
 
 /* Header */
-.site-header {
-    background: #004c6d;
-    color: white;
-}
-.header-inner {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-#menuBtn {
-    background: none;
-    border: none;
-    font-size: 2rem;
-    color: white;
-    cursor: pointer;
-}
-.nav { display: none; }
-.nav ul { list-style: none; }
-.nav a {
-    display: block;
-    padding: .5rem;
-    text-decoration: none;
-    color: white;
-}
-.nav a.active { border-bottom: 2px solid yellow; }
+.site-header{background:var(--card);border-bottom:1px solid #e6e6e6}
+.header-inner{display:flex;align-items:center;justify-content:space-between;gap:1rem}
+.logo{text-decoration:none;color:inherit;font-weight:700;font-size:1.125rem}
+.nav-toggle, .nav-toggle:focus{outline:none}
+.nav-toggle{background:none;border:0;padding:.5rem}
 
-/* Directory */
-.view-toggle {
-    margin: 1rem 0;
-    display: flex;
-    gap: .5rem;
-}
-.view-toggle button {
-    padding: .5rem 1rem;
-    border: none;
-    background: #004c6d;
-    color: white;
-    cursor: pointer;
-    border-radius: 5px;
-}
+/* Primary nav: hidden on mobile */
+.primary-nav{display:none}
+.primary-nav ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:.25rem}
+.primary-nav a{text-decoration:none;padding:.5rem 0;display:block;color:inherit}
+.primary-nav a.active{color:var(--accent);font-weight:700}
 
-#memberContainer {
-    display: grid;
-    gap: 1rem;
-}
+/* Controls */
+.controls{display:flex;flex-direction:column;gap:.75rem;margin:1rem 0}
+.view-buttons{display:flex;gap:.5rem}
+.view-buttons button{padding:.4rem .7rem;border:0;background:transparent;cursor:pointer;border-radius:6px}
+.view-buttons button[aria-pressed="true"]{background:var(--accent);color:#fff}
 
-/* Grid View */
-.grid-view {
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-}
-.grid-view .member-card {
-    background: white;
-    padding: 1rem;
-    border-radius: 8px;
-    text-align: center;
-}
+/* Member container */
+.member-container{display:grid;gap:1rem}
+.grid-view{grid-template-columns:repeat(1,1fr)}
+.member-card{background:var(--card);padding:1rem;border-radius:8px;border:1px solid #eee;box-shadow:0 2px 6px var(--shadow)}
+.member-card img{width:100%;height:auto;border-radius:6px;margin-bottom:.5rem}
+.member-meta{display:flex;flex-direction:column;gap:.25rem}
+.badge{display:inline-block;padding:.25rem .5rem;background:var(--accent);color:#fff;border-radius:4px;font-size:.8rem}
 
-/* List View */
-.list-view { display: block; }
-.list-view .member-card {
-    background: white;
-    padding: 1rem;
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    border-radius: 8px;
-}
-.list-view img { display: none; }
+/* Credits label */
+.credits{font-size:.95rem;color:var(--muted)}
 
-.member-card img {
-    width: 100px;
-    height: auto;
-    border-radius: 4px;
-}
+/* Footer */
+.site-footer{display:flex;flex-direction:column;gap:.5rem;padding:1rem 0;border-top:1px solid #e6e6e6;background:var(--card)}
+.footer-left,.footer-center,.footer-right{text-align:center}
 
-.badge {
-    background: #004c6d;
-    color: white;
-    padding: .3rem .6rem;
-    border-radius: 4px;
-    font-size: .8rem;
-}
-.site-footer {
-    text-align: center;
-    margin-top: 2rem;
-    padding: 1rem;
-    background: #004c6d;
-    color: white;
-}
-    
+/* Accessibility focus */
+button:focus,a:focus{outline:3px solid Highlight;outline-offset:2px}
