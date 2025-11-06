@@ -1,9 +1,0 @@
-/* normalize.css - minimal */
-html { line-height: 1.15; -webkit-text-size-adjust: 100%; }
-body { margin: 0; }
-main { display: block; }
-h1 { font-size: 2em; margin: .67em 0; }
-img { border-style: none; max-width: 100%; height: auto; }
-button, input { font-family: inherit; font-size: 100%; }
-button, input { margin: 0; }
-button { overflow: visible; }

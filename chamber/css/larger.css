@@ -1,12 +1,5 @@
-@media (min-width:48rem){
-  .primary-nav{display:block}
-  .primary-nav ul{flex-direction:row;gap:1rem}
-  .nav-toggle{display:none}
-  .grid-view{grid-template-columns:repeat(2,1fr)}
-  .site-footer{flex-direction:row;justify-content:space-between;align-items:center}
+@media (min-width: 700px) {
+  .nav { display: block !important; }
+  #menuBtn { display: none; }
+  .nav ul { display: flex; gap: 1rem; }
 }
-
-@media (min-width:64rem){
-  .grid-view{grid-template-columns:repeat(3,1fr)}
-}
-/* Larger styles for bigger screens */
