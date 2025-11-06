@@ -20,6 +20,25 @@ body {
   padding: 1rem; 
 }
 
+/* NEW BRAND STYLE (LOGO + TEXT SIDE BY SIDE) */
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.brand img {
+  width: 55px;
+  height: auto;
+  border-radius: 6px; /* optional */
+}
+
+.brand span {
+  font-size: 1.4rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
 #menuBtn { 
   font-size: 2rem; 
   background: none; 
