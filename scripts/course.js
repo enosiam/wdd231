@@ -1,37 +1,38 @@
 const courses = [
-  { id: 'wdd101', title: 'Intro to Web', credits: 3, program: 'WDD101', completed: false },
-  { id: 'wdd131', title: 'HTML & CSS', credits: 3, program: 'WDD131', completed: true },
-  { id: 'cse120', title: 'Intro to Programming', credits: 4, program: 'CSE120', completed: false },
+  { number: "CSE 110", name: "Introduction to Programming", credits: 2, type: "cse", completed: true },
+  { number: "CSE 111", name: "Programming with Functions", credits: 2, type: "cse", completed: false },
+  { number: "WDD 130", name: "Web Fundamentals", credits: 2, type: "wdd", completed: true },
+  { number: "WDD 131", name: "Dynamic Web Fundamentals", credits: 2, type: "wdd", completed: true },
+  { number: "WDD 231", name: "Web Frontend Development I", credits: 2, type: "wdd", completed: false },
+  { number: "WDD 330", name: "Web Frontend Development II", credits: 2, type: "wdd", completed: false },
 ];
 
-function renderCourses(filter = 'all') {
-  const container = document.getElementById('courseList');
-  if (!container) return;
+function renderCourses(filter = "all") {
+  const container = document.getElementById("courseList");
+  let filtered = courses;
 
-  let filtered = [...courses];
-  if (filter === 'wdd') filtered = filtered.filter(c => c.program.toLowerCase() === 'wdd');
-  if (filter === 'cse') filtered = filtered.filter(c => c.program.toLowerCase() === 'cse');
+  // Apply filter
+  if (filter === "wdd") filtered = courses.filter(c => c.type === "wdd");
+  if (filter === "cse") filtered = courses.filter(c => c.type === "cse");
 
-  container.innerHTML = filtered.map(c => `
-    <article class="course-card ${c.completed ? 'completed' : ''}" aria-label="${c.title}">
-      <h3>${c.title}</h3>
-      <p>Program: ${c.program}</p>
-      <p>Credits: ${c.credits}</p>
-      <p>Status: ${c.completed ? 'Completed' : 'Incomplete'}</p>
+  // Render cards
+  container.innerHTML = filtered.map(course => `
+    <article class="course-card ${course.completed ? "completed" : ""}">
+      <h3>${course.number}</h3>
+      <p>${course.name}</p>
+      <p><strong>${course.credits}</strong> Credits</p>
+      <p>Status: ${course.completed ? "✅ Completed" : "⏳ In Progress"}</p>
     </article>
-  `).join('');
+  `).join("");
 
-  const totalCredits = filtered.reduce((sum, cur) => sum + (cur.credits || 0), 0);
-  const creditsEl = document.getElementById('credits');
-  if (creditsEl) creditsEl.textContent = `Credits: ${totalCredits}`;
+  // Update credits using reduce()
+  const creditTotal = filtered.reduce((total, course) => total + course.credits, 0);
+  document.getElementById("credits").textContent = `Credits: ${creditTotal}`;
 }
 
-window.addEventListener('DOMContentLoaded', () => {
-  renderCourses('all');
-  document.querySelectorAll('.filter-btn').forEach(btn => {
-    btn.addEventListener('click', () => {
-      const filter = btn.getAttribute('data-filter');
-      renderCourses(filter);
-    });
-  });
+document.addEventListener("DOMContentLoaded", () => {
+  renderCourses("all");
+  document.querySelectorAll(".filter-btn").forEach(btn =>
+    btn.addEventListener("click", () => renderCourses(btn.dataset.filter))
+  );
 });
