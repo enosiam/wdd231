@@ -1,6 +1,6 @@
 const courses = [
-  { number: "CSE 110", name: "Introduction to Programming", credits: 2, type: "cse", completed: true },
-  { number: "CSE 111", name: "Programming with Functions", credits: 2, type: "cse", completed: false },
+  { number: "CSE 210", name: "Introduction to Programming", credits: 2, type: "cse", completed: true },
+  { number: "CSE 111", name: "Programming with Functions", credits: 2, type: "cse", completed: true },
   { number: "WDD 130", name: "Web Fundamentals", credits: 2, type: "wdd", completed: true },
   { number: "WDD 131", name: "Dynamic Web Fundamentals", credits: 2, type: "wdd", completed: true },
   { number: "WDD 231", name: "Web Frontend Development I", credits: 2, type: "wdd", completed: false },
@@ -21,7 +21,7 @@ function renderCourses(filter = "all") {
       <h3>${course.number}</h3>
       <p>${course.name}</p>
       <p><strong>${course.credits}</strong> Credits</p>
-      <p>Status: ${course.completed ? "✅ Completed" : "⏳ In Progress"}</p>
+      <p>Status: ${course.completed ? "✅ Completed" : "In Progress ⏳..."}</p>
     </article>
   `).join("");
 
