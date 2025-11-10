@@ -3,44 +3,40 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Modules Activity</title>
+  <title>Course Enrollment</title>
   <link rel="stylesheet" href="stylees/modules.css">
 </head>
 <body>
 
-  <header>
+  <main class="card">
     <h1 id="courseName"></h1>
-  </header>
+    <h2 id="courseCode"></h2>
 
-  <main>
     <section class="controls">
-      <label for="sectionNumber">Choose Section:</label>
+      <label for="sectionNumber">Choose a section:</label>
       <select id="sectionNumber"></select>
 
-      <button id="enrollStudent">Enroll Student</button>
-      <button id="dropStudent">Drop Student</button>
+      <button id="enrollStudent">Enroll a Student</button>
+      <button id="dropStudent">Drop a Student</button>
     </section>
 
-    <section class="output">
-      <table>
-        <thead>
-          <tr>
-            <th>Section</th>
-            <th>Enrolled</th>
-            <th>Instructor</th>
-          </tr>
-        </thead>
-        <tbody id="sections"></tbody>
-      </table>
-    </section>
+    <table>
+      <thead>
+        <tr>
+          <th>Section</th>
+          <th>Enrolled</th>
+          <th>Instructor</th>
+        </tr>
+      </thead>
+      <tbody id="sections"></tbody>
+    </table>
   </main>
 
-  <!-- The NEW module entry -->
   <script type="module" src="js/modules.mjs"></script>
   <script type="module" src="js/course.mjs"></script>
   <script type="module" src="js/sections.mjs"></script>
   <script type="module" src="js/output.mjs"></script>
 
-
 </body>
 </html>
+

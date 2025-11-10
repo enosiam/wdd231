@@ -1,16 +1,18 @@
-// output.mjs
 export function setTitle(course) {
-  document.querySelector("#courseName").textContent = `${course.code}: ${course.name}`;
+  document.getElementById("courseName").textContent = course.name;
+  document.getElementById("courseCode").textContent = course.code;
 }
 
 export function renderSections(sections) {
-  const html = sections
-    .map(section => `<tr>
-        <td>${section.sectionNum}</td>
-        <td>${section.enrolled}</td>
-        <td>${section.maxCapacity}</td>
-      </tr>`)
+  const tbody = document.getElementById("sections");
+  tbody.innerHTML = sections
+    .map(
+      s => `
+    <tr>
+      <td>${s.section}</td>
+      <td>${s.enrolled}</td>
+      <td>${s.instructor}</td>
+    </tr>`
+    )
     .join("");
-
-  document.querySelector("#sections").innerHTML = html;
 }
