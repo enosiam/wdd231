@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Modules Activity</title>
+  <link rel="stylesheet" href="stylees/modules.css">
+</head>
+<body>
+
+  <header>
+    <h1 id="courseName"></h1>
+  </header>
+
+  <main>
+    <section class="controls">
+      <label for="sectionNumber">Choose Section:</label>
+      <select id="sectionNumber"></select>
+
+      <button id="enrollStudent">Enroll Student</button>
+      <button id="dropStudent">Drop Student</button>
+    </section>
+
+    <section class="output">
+      <table>
+        <thead>
+          <tr>
+            <th>Section</th>
+            <th>Enrolled</th>
+            <th>Instructor</th>
+          </tr>
+        </thead>
+        <tbody id="sections"></tbody>
+      </table>
+    </section>
+  </main>
+
+  <!-- The NEW module entry -->
+  <script type="module" src="js/modules.mjs"></script>
+  <script type="module" src="js/course.mjs"></script>
+  <script type="module" src="js/sections.mjs"></script>
+  <script type="module" src="js/output.mjs"></script>
+
+
+</body>
+</html>
