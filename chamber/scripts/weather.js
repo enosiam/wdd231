@@ -7,25 +7,18 @@ const UNITS = 'imperial'; // Fahrenheit
 
 async function getWeather() {
   try {
-    // --- Fetch Current Weather ---
-    const currentURL = `https://api.openweathermap.org/data/2.5/weather?q=${encodeURIComponent(
-      CITY
-    )}&units=${UNITS}&appid=${API_KEY}`;
-
-    const currentRes = await fetch(currentURL);
+    const currentRes = await fetch(
+      `https://api.openweathermap.org/data/2.5/weather?q=${encodeURIComponent(CITY)}&units=${UNITS}&appid=${API_KEY}`
+    );
     if (!currentRes.ok) throw new Error('Failed to load current weather.');
     const current = await currentRes.json();
 
-    // --- Fetch 5-day Forecast ---
-    const forecastURL = `https://api.openweathermap.org/data/2.5/forecast?q=${encodeURIComponent(
-      CITY
-    )}&units=${UNITS}&appid=${API_KEY}`;
-
-    const forecastRes = await fetch(forecastURL);
+    const forecastRes = await fetch(
+      `https://api.openweathermap.org/data/2.5/forecast?q=${encodeURIComponent(CITY)}&units=${UNITS}&appid=${API_KEY}`
+    );
     if (!forecastRes.ok) throw new Error('Failed to load forecast.');
     const forecastData = await forecastRes.json();
 
-    // --- Extract Next 3 Days (midday preferred) ---
     const now = Date.now();
     const days = [];
     const usedDates = new Set();
@@ -44,14 +37,14 @@ async function getWeather() {
       }
     }
 
-    // Step 1: First try to get 11:00–13:00 entries (midday)
+    // Prefer midday forecast
     for (const e of forecastData.list) {
       const d = new Date(e.dt * 1000);
       if (d.getHours() >= 11 && d.getHours() <= 13) addDay(e);
       if (days.length >= 3) break;
     }
 
-    // Step 2: If not enough, take next unique dates
+    // Fill in if less than 3 days
     if (days.length < 3) {
       for (const e of forecastData.list) {
         addDay(e);
@@ -59,19 +52,16 @@ async function getWeather() {
       }
     }
 
-    // --- Build HTML ---
+    // Build accessible HTML
     weatherEl.innerHTML = `
-      <p><strong>Current:</strong> ${Math.round(current.main.temp)}°F — 
-        ${current.weather[0].description}
-      </p>
-
-      <h3>3-Day Forecast</h3>
-      <ul>
+      <p><strong>Current:</strong> ${Math.round(current.main.temp)}°F — ${current.weather[0].description}</p>
+      <h3 id="forecast-heading">3-Day Forecast</h3>
+      <ul aria-labelledby="forecast-heading">
         ${days
           .map(
             d => `
           <li>
-            <strong>${new Date(d.date).toLocaleDateString()}</strong>: 
+            <strong>${new Date(d.date).toLocaleDateString(undefined, { weekday: 'short', month: 'short', day: 'numeric' })}</strong>: 
             ${d.temp}°F — ${d.main} (${d.desc})
           </li>`
           )

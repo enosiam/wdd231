@@ -26,17 +26,17 @@
 <body>
   <a class="skip-link" href="#main">Skip to main content</a>
 
+  <!-- HEADER -->
   <header class="site-header" role="banner">
     <div class="wrap site-header-inner">
       <div class="brand">
         <img src="images/logo.jpg" alt="Enosiam Chamber of Commerce logo" width="55" height="55">
-        <span>
-          <h4>Enosiam Chamber of Commerce</h4></span>
+        <span class="brand-name">Enosiam Chamber of Commerce</span>
       </div>
 
       <button id="menuBtn" aria-controls="primaryNav" aria-expanded="false" aria-label="Toggle navigation">☰</button>
 
-      <nav id="primaryNav" class="nav" role="navigation" aria-label="Primary">
+      <nav id="primaryNav" class="nav" role="navigation" aria-label="Primary Navigation">
         <ul>
           <li><a href="index.html" class="active" aria-current="page">Home</a></li>
           <li><a href="directory.html">Directory</a></li>
@@ -44,24 +44,24 @@
           <li><a href="join.html">Join</a></li>
         </ul>
       </nav>
-    </div><!-- .wrap -->
+    </div>
   </header>
 
   <!-- HERO -->
-  <section class="hero" aria-label="Welcome">
+  <section class="hero" aria-label="Welcome to Enosiam Chamber of Commerce">
     <picture>
       <source srcset="images/hero.jpeg" media="(min-width: 800px)">
       <img src="images/hero.jpeg" alt="Enosiam city skyline" class="hero-img" width="1600" height="600">
     </picture>
 
     <div class="hero-text" role="region" aria-labelledby="hero-heading">
-      <!-- h1 adjusted to match title for rubric -->
       <h1 id="hero-heading">Enosiam Chamber of Commerce</h1>
       <p>We connect local businesses, support economic growth, and celebrate community.</p>
-      <a href="join.html" class="cta-btn" role="button">Join the Chamber</a>
+      <a href="join.html" class="cta-btn" role="button" aria-label="Join the Enosiam Chamber of Commerce">Join the Chamber</a>
     </div>
   </section>
 
+  <!-- MAIN CONTENT -->
   <main id="main" class="wrap" role="main">
     <!-- EVENTS -->
     <section class="events" aria-labelledby="events-heading">
@@ -85,12 +85,13 @@
     <section class="spotlights" aria-labelledby="spotlight-heading">
       <h2 id="spotlight-heading">Member Spotlights</h2>
       <div id="spotlights" class="spotlight-grid" aria-live="polite">
-        <!-- spotlight cards injected here by scripts/spotlights.js -->
+        <!-- spotlight cards injected by scripts/spotlights.js -->
       </div>
     </section>
   </main>
 
-  <footer class="site-footer" role="contentinfo">
+  <!-- FOOTER -->
+  <footer class="site-footer" role="contentinfo" aria-label="Footer">
     <div class="wrap">
       <p>&copy; <span id="copyrightYear"></span>
         | Enosiam Chamber of Commerce | WDD 231 | Last modified: <span id="lastModified"></span>
@@ -98,12 +99,12 @@
     </div>
   </footer>
 
-  <!-- Scripts -->
+  <!-- SCRIPTS -->
   <script src="scripts/menu.js" defer></script>
   <script src="scripts/footer.js" defer></script>
-  <!-- removed type="module" to match validator expectations; if your scripts use modules, re-add and adjust build -->
   <script src="scripts/weather.js" defer></script>
   <script src="scripts/spotlights.js" defer></script>
 </body>
 </html>
+
 
