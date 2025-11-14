@@ -10,12 +10,15 @@
 :root {
   --brand: #004d7a;
   --brand-dark: #00385a;
-  /* darker accent to meet WCAG AA contrast for white text */
-  --accent: #d35400; 
+  /* darker accent for WCAG AA contrast */
+  --accent: #c14400; 
   --bg: #f4f4f4;
-  --text: #111;
-  --muted: #444;
+  --text: #111111;
+  --muted: #444444;
   --card: #ffffff;
+  --gold: #ffd700;
+  --silver: #c0c0c0;
+  --bronze: #b86a2b; /* slightly darker for contrast */
 }
 
 /* ---------------------------------- */
@@ -39,16 +42,30 @@ body {
   padding: 1rem;
 }
 
-/* skip link styles moved here (no embedded <style>) */
-.skip-link { position: absolute; left: -999px; top: auto; width: 1px; height:1px; overflow:hidden; }
-.skip-link:focus { left: 1rem; top: 1rem; background: #fff; padding: .5rem; border-radius:4px; z-index:1000; }
+/* skip link styles */
+.skip-link {
+  position: absolute;
+  left: -999px;
+  top: auto;
+  width: 1px;
+  height:1px;
+  overflow:hidden;
+}
+.skip-link:focus {
+  left: 1rem;
+  top: 1rem;
+  background: #fff;
+  padding: .5rem;
+  border-radius:4px;
+  z-index:1000;
+}
 
 /* ---------------------------------- */
 /* HEADER                             */
 /* ---------------------------------- */
 .site-header {
   background: var(--brand);
-  color: #fff;
+  color: #ffffff;
 }
 
 .site-header-inner {
@@ -59,7 +76,6 @@ body {
   gap: 1rem;
 }
 
-/* brand */
 .brand {
   display: flex;
   align-items: center;
@@ -75,12 +91,11 @@ body {
   white-space: nowrap;
 }
 
-/* mobile menu button */
 #menuBtn {
   font-size: 1.7rem;
   background: none;
   border: none;
-  color: white;
+  color: #ffffff;
   cursor: pointer;
   display: inline-flex;
   align-items: center;
@@ -104,13 +119,13 @@ body {
 
 .nav ul { list-style: none; margin: 0; padding: 0; }
 .nav a {
-  color: #fff;
+  color: #ffffff;
   text-decoration: none;
   padding: 0.5rem 1rem;
   display: block;
 }
 .nav a:hover { background: rgba(255,255,255,0.08); }
-.nav a.active { border-bottom: 2px solid gold; }
+.nav a.active { border-bottom: 2px solid var(--gold); }
 
 /* ---------------------------------- */
 /* HERO                               */
@@ -138,7 +153,7 @@ body {
   position: absolute;
   left: 1rem;
   bottom: 1.5rem;
-  color: white;
+  color: #ffffff;
   max-width: 650px;
   padding: 1rem;
   background: rgba(0,0,0,0.3);
@@ -150,12 +165,12 @@ body {
 }
 .hero-text p { margin-top: .5rem; color: #f0f4f7; }
 
-/* CTA button uses darker accent for contrast */
+/* CTA button with darker accent for WCAG AA contrast */
 .cta-btn {
   display: inline-block;
   margin-top: 0.75rem;
   background: var(--accent);
-  color: white;
+  color: #ffffff;
   padding: 0.7rem 1.1rem;
   border-radius: 6px;
   font-weight: 600;
@@ -198,9 +213,9 @@ body {
 
 /* membership labels */
 .membership-tag { display: inline-block; padding: 2px 8px; border-radius: 6px; margin-top: .5rem; font-weight:700; font-size:.85rem; }
-.membership-tag.gold { background:#ffd700; color:#111; }
-.membership-tag.silver { background:#c0c0c0; color:#111; }
-.membership-tag.bronze { background:#cd7f32; color:#fff; }
+.membership-tag.gold { background: var(--gold); color:#111111; }
+.membership-tag.silver { background: var(--silver); color:#111111; }
+.membership-tag.bronze { background: var(--bronze); color:#ffffff; }
 
 /* footer */
 .site-footer { text-align:center; padding:1rem 0; margin-top:2rem; background:#ddd; border-radius:6px; }
@@ -209,7 +224,6 @@ body {
 /* DESKTOP / LARGER VIEW              */
 /* ---------------------------------- */
 @media (min-width: 800px) {
-  /* header inner displays centered content */
   .site-header-inner {
     display: flex;
     justify-content: space-between;
@@ -217,7 +231,7 @@ body {
   }
   #menuBtn { display: none; }
   .nav { display: block; position: static; background: transparent; padding: 0; }
-  .nav a { display: inline-block; padding: 0.5rem 0.75rem; color: #fff; }
+  .nav a { display: inline-block; padding: 0.5rem 0.75rem; color: #ffffff; }
   .hero-text { left: 2.5rem; bottom: 2.5rem; }
 }
 @media (min-width: 1000px) {
