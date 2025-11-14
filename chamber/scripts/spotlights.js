@@ -4,7 +4,7 @@ const spotlightsContainer = document.getElementById("spotlights");
 async function loadSpotlights() {
   try {
     // Fetch members.json
-    const response = await fetch("members.json");
+    const response = await fetch("datas/members.json");
     if (!response.ok) throw new Error("Failed to fetch members.json");
     const data = await response.json();
 
