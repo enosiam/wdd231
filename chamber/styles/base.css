@@ -1,29 +1,6 @@
-/* ---------------------- */
-/* RESET & ROOT VARIABLES */
-/* ---------------------- */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-:root {
-  --brand: #004d7a;
-  --brand-dark: #00385a;
-  --accent: #f97316;
-  --bg: #f4f4f4;
-  --text: #111;
-  --muted: #555;
-  --card: #ffffff;
-}
-
-/* ---------------------- */
-/* BASE */
-/* ---------------------- */
-body {
-/* ---------------------- */
-/* RESET & ROOT VARIABLES */
-/* ---------------------- */
+/* ---------------------------------- */
+/* RESET & ROOT VARIABLES             */
+/* ---------------------------------- */
 * {
   margin: 0;
   padding: 0;
@@ -40,9 +17,9 @@ body {
   --card: #ffffff;
 }
 
-/* ---------------------- */
-/* BASE */
-/* ---------------------- */
+/* ---------------------------------- */
+/* BASE                               */
+/* ---------------------------------- */
 body {
   font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;
   background: var(--bg);
@@ -51,19 +28,19 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
+html, body {
+  overflow-x: hidden;
+}
+
 .wrap {
   max-width: 1100px;
   margin: 0 auto;
   padding: 1rem;
 }
 
-html, body {
-  overflow-x: hidden;
-}
-
-/* ---------------------- */
-/* HEADER */
-/* ---------------------- */
+/* ---------------------------------- */
+/* HEADER                             */
+/* ---------------------------------- */
 .site-header {
   display: flex;
   justify-content: space-between;
@@ -72,7 +49,7 @@ html, body {
   color: #fff;
   padding: 0.75rem 1rem;
   gap: 1rem;
-  position: relative; /* FIX ADDED */
+  position: relative;
 }
 
 .brand {
@@ -80,17 +57,19 @@ html, body {
   align-items: center;
   gap: 12px;
 }
+
 .brand img {
   width: 55px;
   border-radius: 6px;
 }
+
 .brand span {
   font-size: 1.25rem;
   font-weight: 600;
   white-space: nowrap;
 }
 
-/* MOBILE MENU BUTTON */
+/* Mobile Menu Button */
 #menuBtn {
   font-size: 1.7rem;
   background: none;
@@ -99,12 +78,12 @@ html, body {
   cursor: pointer;
   display: inline-flex;
   align-items: center;
-  padding: 0.3rem 0.4rem; /* Improved click area */
+  padding: 0.3rem 0.4rem;
 }
 
-/* ---------------------- */
-/* NAVIGATION */
-/* ---------------------- */
+/* ---------------------------------- */
+/* NAVIGATION                         */
+/* ---------------------------------- */
 .nav {
   display: none;
   background: var(--brand-dark);
@@ -116,10 +95,17 @@ html, body {
   z-index: 100;
 }
 
-.nav-show { display: block; }
+.nav-show { 
+  display: block; 
+}
 
-.nav ul { list-style: none; }
-.nav li { margin: 0; }
+.nav ul { 
+  list-style: none; 
+}
+
+.nav li { 
+  margin: 0; 
+}
 
 .nav a {
   color: #fff;
@@ -129,22 +115,29 @@ html, body {
   transition: background 0.2s;
 }
 
-.nav a:hover { background: rgba(255,255,255,0.1); }
-.nav a.active { border-bottom: 2px solid gold; }
+.nav a:hover {
+  background: rgba(255,255,255,0.1);
+}
 
-/* ---------------------- */
-/* HERO */
-/* ---------------------- */
+.nav a.active {
+  border-bottom: 2px solid gold;
+}
+
+/* ---------------------------------- */
+/* HERO                               */
+/* ---------------------------------- */
 .hero {
   position: relative;
   border-radius: 8px;
   margin-top: 1rem;
   overflow: hidden;
 }
+
 .hero-img {
   width: 100%;
   object-fit: cover;
 }
+
 .hero::after {
   content: "";
   position: absolute;
@@ -175,14 +168,17 @@ html, body {
   box-shadow: 0 2px 6px rgba(0,0,0,0.2);
   transition: opacity 0.2s;
 }
+
 .cta-btn:hover {
   opacity: 0.9;
 }
 
-/* ---------------------- */
-/* CARDS & SECTIONS */
-/* ---------------------- */
-.events, .weather, .spotlights {
+/* ---------------------------------- */
+/* CARDS & SECTIONS                   */
+/* ---------------------------------- */
+.events,
+.weather,
+.spotlights {
   margin-top: 1.5rem;
   background: var(--card);
   padding: 1rem;
@@ -214,13 +210,24 @@ html, body {
   font-size: 0.85rem;
 }
 
-.membership-tag.gold { background: #ffd700; color: #111; }
-.membership-tag.silver { background: #c0c0c0; color: #111; }
-.membership-tag.bronze { background: #cd7f32; color: #fff; }
+.membership-tag.gold {
+  background: #ffd700;
+  color: #111;
+}
 
-/* ---------------------- */
-/* FOOTER */
-/* ---------------------- */
+.membership-tag.silver {
+  background: #c0c0c0;
+  color: #111;
+}
+
+.membership-tag.bronze {
+  background: #cd7f32;
+  color: #fff;
+}
+
+/* ---------------------------------- */
+/* FOOTER                             */
+/* ---------------------------------- */
 .site-footer {
   text-align: center;
   padding: 1rem 0;
@@ -229,9 +236,9 @@ html, body {
   border-radius: 6px;
 }
 
-/* ---------------------- */
-/* DESKTOP */
-/* ---------------------- */
+/* ---------------------------------- */
+/* DESKTOP RESPONSIVE                 */
+/* ---------------------------------- */
 @media (min-width: 800px) {
   #menuBtn { display: none; }
 
@@ -252,4 +259,3 @@ html, body {
     bottom: 2.5rem;
   }
 }
-
