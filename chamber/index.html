@@ -1,103 +1,112 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Enosiam Chamber of Commerce - Home</title>
+  <meta name="description" content="Welcome to the Enosiam Chamber of Commerce — connecting businesses and building our community." />
+  <meta name="author" content="Emmanuel Eno Effiong" />
 
-    <title>Enosiam Chamber of Commerce - Home</title>
-    <meta name="description" content="Welcome to the Enosiam Chamber of Commerce—connecting businesses, promoting growth, and supporting the economic development of Timbuktu.">
-    <meta name="author" content="Emmanuel Eno Effiong">
+  <!-- Favicons / Open Graph -->
+  <link rel="icon" href="favicon/favicon.ico" type="image/x-icon">
+  <meta property="og:title" content="Enosiam Chamber of Commerce - Home">
+  <meta property="og:description" content="Explore events, member spotlights, and weather updates for Enosiam.">
+  <meta property="og:image" content="https://enosiam.github.io/wdd231/chamber/images/logo.png">
+  <meta property="og:url" content="https://enosiam.github.io/wdd231/chamber/index.html">
 
-    <!-- Favicon -->
-    <link rel="icon" href="favicon/favicon.ico" type="image/x-icon">
+  <!-- Google Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
 
-    <!-- Social Media Open Graph -->
-    <meta property="og:title" content="Enosiam Chamber of Commerce - Home">
-    <meta property="og:description" content="Join the Enosiam Chamber of Commerce and be part of a growing community supporting local business success.">
-    <meta property="og:image" content="https://enosiam.github.io/wdd231/chamber/images/logo.png">
-    <meta property="og:url" content="https://enosiam.github.io/wdd231/chamber/index.html">
+  <!-- CSS -->
+  <link rel="stylesheet" href="styles/base.css">
+  <link rel="stylesheet" href="styles/larger.css">
 
-    <!-- Google Font Required (No @import allowed) -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
-
-    <!-- CSS Files -->
-    <link rel="stylesheet" href="styles/base.css">
-    <link rel="stylesheet" href="styles/larger.css">
+  <!-- Accessibility: skip link -->
+  <style>
+    .skip-link { position: absolute; left: -999px; top: auto; width: 1px; height:1px; overflow:hidden; }
+    .skip-link:focus { left: 1rem; top: 1rem; background: #fff; padding: .5rem; border-radius:4px; z-index:1000;}
+  </style>
 </head>
-
 <body>
+  <a class="skip-link" href="#main">Skip to main content</a>
 
-<header class="site-header wrap">
+  <header class="site-header wrap" role="banner">
     <div class="brand">
-        <img src="images/logo.jpg" alt="Enosiam Chamber of Commerce Logo">
-        <span>Enosiam Chamber of Commerce</span>
+      <img src="images/logo.jpg" alt="Enosiam Chamber of Commerce logo" width="55" height="55">
+      <span>Enosiam Chamber of Commerce</span>
     </div>
 
-    <button id="menuBtn">☰</button>
+    <button id="menuBtn" aria-controls="primaryNav" aria-expanded="false" aria-label="Toggle navigation">☰</button>
 
-    <nav id="primaryNav" class="nav">
-        <ul>
-            <li><a href="index.html" class="active">Home</a></li>
-            <li><a href="directory.html">Directory</a></li>
-            <li><a href="discover.html">Discover</a></li>
-            <li><a href="join.html">Join</a></li>
-        </ul>
+    <nav id="primaryNav" class="nav" role="navigation" aria-label="Primary">
+      <ul>
+        <li><a href="index.html" class="active" aria-current="page">Home</a></li>
+        <li><a href="directory.html">Directory</a></li>
+        <li><a href="discover.html">Discover</a></li>
+        <li><a href="join.html">Join</a></li>
+      </ul>
     </nav>
-</header>
+  </header>
 
-<!-- HERO SECTION -->
-<section class="hero">
+  <!-- HERO -->
+  <section class="hero" aria-label="Welcome">
     <picture>
-        <source srcset="images/logo.jpg" media="(min-width: 768px)">
-        <img src="images/hero.jpeg" alt="Welcome to Enosiam Chamber of Commerce" class="hero-img">
+      <source srcset="images/hero" media="(min-width: 800px)">
+      <img src="images/hero.jpeg" alt="Enosiam city skyline" class="hero-img" width="1600" height="600">
     </picture>
-    <div class="hero-text">
-        <h1>Welcome to the Enosiam Chamber of Commerce</h1>
-        <p>Connecting businesses and building a thriving community.</p>
-        <a href="join.html" class="cta-btn">Join the Chamber</a>
+
+    <div class="hero-text" role="region" aria-labelledby="hero-heading">
+      <h1 id="hero-heading">Welcome to the Enosiam Chamber of Commerce</h1>
+      <p>We connect local businesses, support economic growth, and celebrate community.</p>
+      <a href="join.html" class="cta-btn" role="button">Join the Chamber</a>
     </div>
-</section>
+  </section>
 
-<main class="wrap">
-
-    <!-- EVENTS SECTION -->
-    <section class="events">
-        <h2>Upcoming Events</h2>
-        <ul>
-            <li><strong>Business Networking Night:</strong> Nov 25th, 2025 - Enosiam City Hall</li>
-            <li><strong>Small Business Workshop:</strong> Dec 10th, 2025 - Downtown Conference Center</li>
-            <li><strong>Holiday Market:</strong> Dec 20th, 2025 - Community Square</li>
-        </ul>
+  <main id="main" class="wrap" role="main">
+    <!-- EVENTS -->
+    <section class="events" aria-labelledby="events-heading">
+      <h2 id="events-heading">Upcoming Events</h2>
+      <!-- Placeholder events (OK per spec) -->
+      <ul>
+        <li><strong>Business Networking Night</strong> — Dec 05, 2025</li>
+        <li><strong>Small Biz Workshop</strong> — Jan 12, 2026</li>
+        <li><strong>Holiday Market</strong> — Dec 20, 2025</li>
+      </ul>
     </section>
 
-    <!-- WEATHER SECTION -->
-    <section class="weather">
-        <h2>Current Weather in Timbuktu</h2>
-        <div id="weather">
-            <p>Loading weather data...</p>
-        </div>
+    <!-- WEATHER -->
+    <section class="weather" aria-labelledby="weather-heading">
+      <h2 id="weather-heading">Current Weather in Timbuktu</h2>
+      <div id="weather" aria-live="polite">
+        <p>Loading weather data…</p>
+      </div>
     </section>
 
-    <!-- SPOTLIGHT SECTION -->
-    <section class="spotlights">
-        <h2>Member Spotlights</h2>
-        <div id="spotlightContainer" class="spotlight-container">
-            <!-- Dynamic member cards will be loaded here -->
-        </div>
+    <!-- SPOTLIGHTS -->
+    <section class="spotlights" aria-labelledby="spotlight-heading">
+      <h2 id="spotlight-heading">Member Spotlights</h2>
+      <div id="spotlightContainer" class="spotlight-grid" aria-live="polite">
+        <section class="spotlight-section">
+  <h2>Company Spotlight</h2>
+  <div id="spotlight">
+      </div>
     </section>
+  </main>
 
-</main>
+  <footer class="site-footer wrap" role="contentinfo">
+    <p>&copy; <span id="copyrightYear"></span>
+      | Enosiam Chamber of Commerce | WDD 231 | Last modified: <span id="lastModified"></span>
+    </p>
+  </footer>
 
-<footer class="site-footer wrap">
-    <p>&copy; <span id="copyrightYear"></span> | Enosiam Chamber of Commerce | WDD 231 | <span id="lastModified"></span></p>
-</footer>
-
-<!-- JavaScript -->
-<script src="scripts/footer.js" defer></script>
-<script src="scripts/home.js" type="module" defer></script>
-
+  <!-- Scripts -->
+  <script src="scripts/menu.js" defer></script>
+  <script src="scripts/footer.js" defer></script>
+  <script src="scripts/weather.js" type="module" defer></script>
+  <script src="scripts/spotlights.js" type="module" defer></script>
 </body>
 </html>
+
 
