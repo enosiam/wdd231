@@ -10,7 +10,8 @@
 :root {
   --brand: #004d7a;
   --brand-dark: #00385a;
-  --accent: #f97316;
+  /* darker accent to meet WCAG AA contrast for white text */
+  --accent: #d35400; 
   --bg: #f4f4f4;
   --text: #111;
   --muted: #444;
@@ -20,6 +21,10 @@
 /* ---------------------------------- */
 /* BASE                               */
 /* ---------------------------------- */
+html, body {
+  overflow-x: hidden; /* prevent sideways scroll */
+}
+
 body {
   font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;
   background: var(--bg);
@@ -28,48 +33,49 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-html, body {
-  overflow-x: hidden;
-}
-
 .wrap {
   max-width: 1100px;
   margin: 0 auto;
   padding: 1rem;
 }
 
+/* skip link styles moved here (no embedded <style>) */
+.skip-link { position: absolute; left: -999px; top: auto; width: 1px; height:1px; overflow:hidden; }
+.skip-link:focus { left: 1rem; top: 1rem; background: #fff; padding: .5rem; border-radius:4px; z-index:1000; }
+
 /* ---------------------------------- */
 /* HEADER                             */
 /* ---------------------------------- */
 .site-header {
+  background: var(--brand);
+  color: #fff;
+}
+
+.site-header-inner {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: var(--brand);
-  color: #fff;
   padding: 0.75rem 1rem;
   gap: 1rem;
-  position: relative;
 }
 
+/* brand */
 .brand {
   display: flex;
   align-items: center;
   gap: 12px;
 }
-
 .brand img {
   width: 55px;
   border-radius: 6px;
 }
-
 .brand span {
   font-size: 1.25rem;
   font-weight: 600;
   white-space: nowrap;
 }
 
-/* Mobile Menu Button */
+/* mobile menu button */
 #menuBtn {
   font-size: 1.7rem;
   background: none;
@@ -88,40 +94,23 @@ html, body {
   display: none;
   background: var(--brand-dark);
   position: absolute;
-  top: 100%;
+  top: calc(100% + 8px);
   right: 1rem;
   padding: 0.5rem;
   border-radius: 6px;
   z-index: 100;
 }
+.nav-show { display: block; }
 
-.nav-show { 
-  display: block; 
-}
-
-.nav ul { 
-  list-style: none; 
-}
-
-.nav li { 
-  margin: 0; 
-}
-
+.nav ul { list-style: none; margin: 0; padding: 0; }
 .nav a {
   color: #fff;
   text-decoration: none;
   padding: 0.5rem 1rem;
   display: block;
-  transition: background 0.2s;
 }
-
-.nav a:hover {
-  background: rgba(255,255,255,0.1);
-}
-
-.nav a.active {
-  border-bottom: 2px solid gold;
-}
+.nav a:hover { background: rgba(255,255,255,0.08); }
+.nav a.active { border-bottom: 2px solid gold; }
 
 /* ---------------------------------- */
 /* HERO                               */
@@ -132,12 +121,12 @@ html, body {
   margin-top: 1rem;
   overflow: hidden;
 }
-
 .hero-img {
   width: 100%;
+  height: auto;
+  display: block;
   object-fit: cover;
 }
-
 .hero::after {
   content: "";
   position: absolute;
@@ -155,7 +144,13 @@ html, body {
   background: rgba(0,0,0,0.3);
   border-radius: 6px;
 }
+.hero-text h1 {
+  font-size: 1.7rem;
+  margin: 0;
+}
+.hero-text p { margin-top: .5rem; color: #f0f4f7; }
 
+/* CTA button uses darker accent for contrast */
 .cta-btn {
   display: inline-block;
   margin-top: 0.75rem;
@@ -168,17 +163,12 @@ html, body {
   box-shadow: 0 2px 6px rgba(0,0,0,0.2);
   transition: opacity 0.2s;
 }
-
-.cta-btn:hover {
-  opacity: 0.9;
-}
+.cta-btn:hover { opacity: 0.95; }
 
 /* ---------------------------------- */
-/* CARDS & SECTIONS                   */
+/* SECTIONS & CARDS                   */
 /* ---------------------------------- */
-.events,
-.weather,
-.spotlights {
+.events, .weather, .spotlights {
   margin-top: 1.5rem;
   background: var(--card);
   padding: 1rem;
@@ -186,13 +176,15 @@ html, body {
   border: 1px solid #e6e6e6;
 }
 
+.events h2, .weather h2, .spotlights h2 { font-size: 1.2rem; margin: 0 0 .5rem 0; }
+
+/* spotlight grid */
 .spotlight-grid {
   margin-top: 1rem;
   display: grid;
   gap: 1rem;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
 }
-
 .spotlight-card {
   background: var(--card);
   padding: 1rem;
@@ -200,64 +192,37 @@ html, body {
   border: 1px solid #ddd;
   text-align: center;
 }
+.spotlight-card img { max-width: 120px; height: auto; margin-bottom: .5rem; }
+.spotlight-card h3 { margin: 0 0 .25rem 0; font-size: 1.05rem; }
+.spotlight-card p { margin: .25rem 0; color: var(--muted); }
 
-.membership-tag {
-  display: inline-block;
-  padding: 2px 8px;
-  border-radius: 6px;
-  margin-top: 0.5rem;
-  font-weight: 700;
-  font-size: 0.85rem;
-}
+/* membership labels */
+.membership-tag { display: inline-block; padding: 2px 8px; border-radius: 6px; margin-top: .5rem; font-weight:700; font-size:.85rem; }
+.membership-tag.gold { background:#ffd700; color:#111; }
+.membership-tag.silver { background:#c0c0c0; color:#111; }
+.membership-tag.bronze { background:#cd7f32; color:#fff; }
 
-.membership-tag.gold {
-  background: #ffd700;
-  color: #111;
-}
-
-.membership-tag.silver {
-  background: #c0c0c0;
-  color: #111;
-}
-
-.membership-tag.bronze {
-  background: #cd7f32;
-  color: #fff;
-}
+/* footer */
+.site-footer { text-align:center; padding:1rem 0; margin-top:2rem; background:#ddd; border-radius:6px; }
 
 /* ---------------------------------- */
-/* FOOTER                             */
-/* ---------------------------------- */
-.site-footer {
-  text-align: center;
-  padding: 1rem 0;
-  margin-top: 2rem;
-  background: #ddd;
-  border-radius: 6px;
-}
-
-/* ---------------------------------- */
-/* DESKTOP RESPONSIVE                 */
+/* DESKTOP / LARGER VIEW              */
 /* ---------------------------------- */
 @media (min-width: 800px) {
+  /* header inner displays centered content */
+  .site-header-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
   #menuBtn { display: none; }
-
-  .nav {
-    display: block;
-    position: static;
-    background: transparent;
-    padding: 0;
-  }
-
-  .nav a {
-    display: inline-block;
-    padding: 0.5rem 0.75rem;
-  }
-
-  .hero-text {
-    left: 2.5rem;
-    bottom: 2.5rem;
-  }
+  .nav { display: block; position: static; background: transparent; padding: 0; }
+  .nav a { display: inline-block; padding: 0.5rem 0.75rem; color: #fff; }
+  .hero-text { left: 2.5rem; bottom: 2.5rem; }
+}
+@media (min-width: 1000px) {
+  .hero-text h1 { font-size: 1.9rem; }
+  .hero-text { left: 3rem; bottom: 3rem; }
 }
 @media (min-width: 1100px) {
   .wrap { padding: 2rem; }

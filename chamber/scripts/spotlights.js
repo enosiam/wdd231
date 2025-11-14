@@ -1,37 +1,47 @@
-async function loadSpotlight() {
-  const response = await fetch("data/members.json");
-  const data = await response.json();
+// spotlight.js
 
-  // 1️⃣ Filter to only Gold and Silver members
-  const qualified = data.members.filter(member =>
-    member.membership === "Gold" || member.membership === "Silver"
-  );
+const spotlightsContainer = document.getElementById("spotlights");
 
-  // 2️⃣ Randomly shuffle the array
-  const shuffled = qualified.sort(() => Math.random() - 0.5);
+async function loadMembers() {
+    try {
+        const response = await fetch("members.json");
+        const data = await response.json();
 
-  // 3️⃣ Pick the first 1-2 members
-  const spotlightMembers = shuffled.slice(0, 2);
+        // Filter Gold + Silver only
+        const spotlightCandidates = data.members.filter(member =>
+            member.membership === "Gold" || member.membership === "Silver"
+        );
 
-  const container = document.getElementById("spotlight");
+        // Shuffle and pick 2–3 random companies
+        const selectedSpotlights = spotlightCandidates
+            .sort(() => Math.random() - 0.5)
+            .slice(0, 3);
 
-  spotlightMembers.forEach(member => {
-    const card = document.createElement("div");
-    card.classList.add("spotlight-card");
-
-    card.innerHTML = `
-      <img src="images/${member.image}" alt="${member.name}">
-      <h3>${member.name}</h3>
-      <p>${member.address}</p>
-      <p>${member.phone}</p>
-      <a href="${member.website}" target="_blank">Visit Website</a>
-      <span class="membership-tag ${member.membership.toLowerCase()}">
-        ${member.membership}
-      </span>
-    `;
-
-    container.appendChild(card);
-  });
+        displaySpotlights(selectedSpotlights);
+    } catch (error) {
+        console.error("Error loading spotlight members:", error);
+    }
 }
 
-loadSpotlight();
+function displaySpotlights(members) {
+    spotlightsContainer.innerHTML = ""; // clear existing
+
+    members.forEach(member => {
+        const card = document.createElement("section");
+        card.classList.add("spotlight-card");
+
+        card.innerHTML = `
+            <img src="images/${member.image}" alt="${member.name}">
+            <h3>${member.name}</h3>
+            <p>${member.address}</p>
+            <p>${member.phone}</p>
+            <a href="${member.website}" target="_blank">Visit Website</a>
+            <span class="membership-badge ${member.membership}">${member.membership}</span>
+        `;
+
+        spotlightsContainer.appendChild(card);
+    });
+}
+
+loadMembers();
+
