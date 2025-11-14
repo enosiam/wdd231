@@ -259,4 +259,8 @@ html, body {
     bottom: 2.5rem;
   }
 }
-
+@media (min-width: 1100px) {
+  .wrap { padding: 2rem; }
+  .hero-text h1 { font-size: 2rem; }
+  .events, .weather, .spotlights { padding: 1.25rem; }
+}

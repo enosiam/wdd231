@@ -10,8 +10,8 @@ async function loadSpotlight() {
   // 2️⃣ Randomly shuffle the array
   const shuffled = qualified.sort(() => Math.random() - 0.5);
 
-  // 3️⃣ Pick the first 2–3 members
-  const spotlightMembers = shuffled.slice(0, 3);
+  // 3️⃣ Pick the first 1-2 members
+  const spotlightMembers = shuffled.slice(0, 2);
 
   const container = document.getElementById("spotlight");
 
