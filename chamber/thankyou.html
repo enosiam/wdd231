@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Thank You</title>
+  <link rel="stylesheet" href="styles/base.css">
+  <link rel="stylesheet" href="styles/larger.css">
+</head>
+<body>
+<header>
+  <h1>Enosiam Chamber of Commerce</h1>
+  <nav>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="directory.html">Directory</a></li>
+      <li><a href="join.html">Join</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main>
+  <h2>Thank You for Your Submission!</h2>
+  <p>Here is the information you submitted:</p>
+  <ul id="formDataList"></ul>
+</main>
+
+<script>
+  // Read GET parameters from URL
+  const params = new URLSearchParams(window.location.search);
+  const formDataList = document.getElementById('formDataList');
+
+  const fields = [
+    {name: 'firstName', label: 'First Name'},
+    {name: 'lastName', label: 'Last Name'},
+    {name: 'email', label: 'Email'},
+    {name: 'phone', label: 'Mobile Phone'},
+    {name: 'businessName', label: 'Business/Organization Name'},
+    {name: 'timestamp', label: 'Form Submission Time'}
+  ];
+
+  fields.forEach(f => {
+    const li = document.createElement('li');
+    li.textContent = `${f.label}: ${params.get(f.name) || 'N/A'}`;
+    formDataList.appendChild(li);
+  });
+</script>
+</body>
+</html>
+
+    <label>
+      Business Address:
+      <input type="text" name="businessAddress" title="Business Address" autocomplete="street-address" required>
+    </label>
+
+    <label>
+      Business Type:
+      <select name="businessType" title="Business Type" required>
+        <option value="" disabled selected>Select a type</option>
+        <option value="retail">Retail</option>
+        <option value="service">Service</option>
+        <option value="manufacturing">Manufacturing</option>
+        <option value="nonprofit">Non-Profit</option>
+        <option value="other">Other</option>
+      </select>
+    </label>
+
+    <button type="submit">Submit Application</button>
+  </form>
