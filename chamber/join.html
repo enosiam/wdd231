@@ -1,164 +1,159 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Join the Chamber</title>
-  <meta name="description" content="Apply to join our chamber and select your membership level.">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Join Enosiam Chamber of Commerce</title>
+  <meta name="description" content="Apply to join the Enosiam Chamber of Commerce as a member.">
   <meta name="author" content="Emmanuel Eno Effiong">
+  <link rel="icon" href="favicon/favicon.ico" type="image/x-icon">
   <link rel="stylesheet" href="styles/base.css">
   <link rel="stylesheet" href="styles/larger.css">
-  <style>
-    /* Membership Cards Animation */
-    .membership-grid {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1rem;
-      margin-top: 1rem;
-    }
-    .membership-card {
-      flex: 1 1 200px;
-      padding: 1rem;
-      border: 1px solid #ccc;
-      border-radius: 8px;
-      background-color: #f9f9f9;
-      cursor: pointer;
-      opacity: 0;
-      transform: translateY(20px);
-      animation: fadeInUp 0.8s ease forwards;
-    }
-    .membership-card:nth-child(1) { animation-delay: 0.1s; }
-    .membership-card:nth-child(2) { animation-delay: 0.3s; }
-    .membership-card:nth-child(3) { animation-delay: 0.5s; }
-    .membership-card:nth-child(4) { animation-delay: 0.7s; }
-
-    @keyframes fadeInUp {
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    dialog {
-      border: none;
-      border-radius: 8px;
-      padding: 1rem;
-      width: 300px;
-    }
-  </style>
 </head>
 <body>
-<header>
-  <h1>Enosiam Chamber of Commerce</h1>
-  <nav>
-    <ul>
-      <li><a href="index.html">Home</a></li>
-      <li><a href="directory.html">Directory</a></li>
-      <li><a href="join.html" class="active">Join</a></li>
-    </ul>
-  </nav>
-</header>
+  <a class="skip-link" href="#main">Skip to main content</a>
 
-<main>
-  <h2>Apply to Join</h2>
+  <header class="site-header" role="banner">
+    <div class="wrap site-header-inner">
+      <div class="brand">
+        <img src="images/logo.jpg" alt="Enosiam Chamber of Commerce logo" width="55" height="55">
+        <span class="brand-name">Enosiam Chamber of Commerce</span>
+      </div>
+      <button id="menuBtn" aria-controls="primaryNav" aria-expanded="false" aria-label="Toggle navigation">☰</button>
+      <nav id="primaryNav" class="nav" role="navigation" aria-label="Primary Navigation">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="directory.html">Directory</a></li>
+          <li><a href="discover.html">Discover</a></li>
+          <li><a href="join.html" class="active" aria-current="page">Join</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
 
-  <form method="get" action="thankyou.html">
-    <label>
-      First Name:
-      <input type="text" name="firstName" title="First Name" autocomplete="given-name" required>
-    </label>
+  <main id="main" class="wrap" role="main">
+    <h1>Membership Application</h1>
 
-    <label>
-      Last Name:
-      <input type="text" name="lastName" title="Last Name" autocomplete="family-name" required>
-    </label>
+    <div class="membership-form-container">
+      <form id="joinForm" method="get" action="thankyou.html" class="join-form" novalidate>
+        <label>
+          First Name
+          <input type="text" name="firstName" title="First Name" autocomplete="given-name" required>
+        </label>
 
-    <label>
-      Title in Organization:
-      <input type="text" name="orgTitle" title="Organizational Title" 
-             autocomplete="organization-title" pattern="[A-Za-z\s\-]{7,}" 
-             placeholder="Manager, Director" required>
-    </label>
+        <label>
+          Last Name
+          <input type="text" name="lastName" title="Last Name" autocomplete="family-name" required>
+        </label>
 
-    <label>
-      Email:
-      <input type="email" name="email" title="Email" autocomplete="email" 
-             placeholder="example@domain.com" required>
-    </label>
+        <label>
+          Organizational Title
+          <input type="text" name="orgTitle" title="Organizational Title" autocomplete="organization-title"
+                 pattern="[A-Za-z\s\-]{7,}" placeholder="e.g. Business-Manager" required>
+        </label>
 
-    <label>
-      Mobile Phone:
-      <input type="tel" name="phone" title="Phone Number" autocomplete="tel" required>
-    </label>
+        <label>
+          Email Address
+          <input type="email" name="email" title="Email Address" autocomplete="email" placeholder="example@domain.com" required>
+        </label>
 
-    <label>
-      Business/Organization Name:
-      <input type="text" name="businessName" title="Business Name" autocomplete="organization" required>
-    </label>
+        <label>
+          Mobile Phone
+          <input type="tel" name="mobile" title="Mobile Phone" autocomplete="tel" required>
+        </label>
 
-    <label>
-      Membership Level:
-      <select name="membership" title="Membership Level" required>
-        <option value="">Select Membership</option>
-        <option value="np">NP Membership (Non-Profit)</option>
-        <option value="bronze">Bronze</option>
-        <option value="silver">Silver</option>
-        <option value="gold">Gold</option>
-      </select>
-    </label>
+        <label>
+          Business / Organization Name
+          <input type="text" name="businessName" title="Business Name" autocomplete="organization" required>
+        </label>
 
-    <label>
-      Organization Description:
-      <textarea name="description" title="Organization Description"></textarea>
-    </label>
+        <label>
+          Membership Level
+          <select name="membership" title="Membership Level" required>
+            <option value="">-- select a membership level --</option>
+            <option value="np">NP Membership (np)</option>
+            <option value="bronze">Bronze Membership (bronze)</option>
+            <option value="silver">Silver Membership (silver)</option>
+            <option value="gold">Gold Membership (gold)</option>
+          </select>
+        </label>
 
-    <input type="hidden" name="timestamp" id="timestamp">
+        <label>
+          Business / Organization Description
+          <textarea name="description" title="Business Description" rows="4"></textarea>
+        </label>
 
-    <input type="submit" value="Submit Application">
-  </form>
+        <input type="hidden" name="timestamp" id="timestamp">
 
-  <h2>Membership Benefits</h2>
-  <div class="membership-grid">
-    <div class="membership-card" data-modal="npModal">NP Membership Info</div>
-    <div class="membership-card" data-modal="bronzeModal">Bronze Membership Info</div>
-    <div class="membership-card" data-modal="silverModal">Silver Membership Info</div>
-    <div class="membership-card" data-modal="goldModal">Gold Membership Info</div>
-  </div>
+        <input type="submit" value="Submit Application">
+      </form>
 
-  <!-- Modals -->
-  <dialog id="npModal">
-    <h3>NP Membership Benefits</h3>
-    <p>No fees, access to networking events.</p>
-    <button onclick="this.closest('dialog').close()">Close</button>
-  </dialog>
+      <aside class="membership-cards" aria-label="Membership Levels">
+        <article class="card np">
+          <h3>NP Membership</h3>
+          <a href="#npModal" class="open-modal" data-modal="npModal">Learn more</a>
+        </article>
+        <article class="card bronze">
+          <h3>Bronze Membership</h3>
+          <a href="#bronzeModal" class="open-modal" data-modal="bronzeModal">Learn more</a>
+        </article>
+        <article class="card silver">
+          <h3>Silver Membership</h3>
+          <a href="#silverModal" class="open-modal" data-modal="silverModal">Learn more</a>
+        </article>
+        <article class="card gold">
+          <h3>Gold Membership</h3>
+          <a href="#goldModal" class="open-modal" data-modal="goldModal">Learn more</a>
+        </article>
+      </aside>
+    </div>
 
-  <dialog id="bronzeModal">
-    <h3>Bronze Membership Benefits</h3>
-    <p>Basic advertising, event access, newsletter.</p>
-    <button onclick="this.closest('dialog').close()">Close</button>
-  </dialog>
+    <!-- Dialogs -->
+    <dialog id="npModal" class="membership-dialog" aria-labelledby="npTitle">
+      <h3 id="npTitle">NP Membership Benefits</h3>
+      <ul>
+        <li>No membership fee</li>
+        <li>Access to general networking events</li>
+      </ul>
+      <button class="close-modal">Close</button>
+    </dialog>
 
-  <dialog id="silverModal">
-    <h3>Silver Membership Benefits</h3>
-    <p>Spotlight on home page, discounts on events, training access.</p>
-    <button onclick="this.closest('dialog').close()">Close</button>
-  </dialog>
+    <dialog id="bronzeModal" class="membership-dialog" aria-labelledby="bronzeTitle">
+      <h3 id="bronzeTitle">Bronze Membership Benefits</h3>
+      <ul>
+        <li>Directory listing and member newsletter</li>
+        <li>Event discount</li>
+      </ul>
+      <button class="close-modal">Close</button>
+    </dialog>
 
-  <dialog id="goldModal">
-    <h3>Gold Membership Benefits</h3>
-    <p>All Silver benefits + premium spotlight, exclusive events.</p>
-    <button onclick="this.closest('dialog').close()">Close</button>
-  </dialog>
-</main>
+    <dialog id="silverModal" class="membership-dialog" aria-labelledby="silverTitle">
+      <h3 id="silverTitle">Silver Membership Benefits</h3>
+      <ul>
+        <li>Bronze benefits plus advertising spots</li>
+        <li>Training access</li>
+      </ul>
+      <button class="close-modal">Close</button>
+    </dialog>
 
-<script>
-  // Populate timestamp field
-  document.getElementById('timestamp').value = new Date().toISOString();
+    <dialog id="goldModal" class="membership-dialog" aria-labelledby="goldTitle">
+      <h3 id="goldTitle">Gold Membership Benefits</h3>
+      <ul>
+        <li>Silver benefits plus premium spotlight on home</li>
+        <li>Exclusive networking events</li>
+      </ul>
+      <button class="close-modal">Close</button>
+    </dialog>
+  </main>
 
-  // Modal click handlers
-  document.querySelectorAll('.membership-card').forEach(card => {
-    card.addEventListener('click', () => {
-      const modalId = card.dataset.modal;
-      document.getElementById(modalId).showModal();
-    });
-  });
-</script>
+  <footer class="site-footer" role="contentinfo">
+    <div class="wrap">
+      <p>&copy; <span id="copyrightYear"></span> Enosiam Chamber of Commerce</p>
+    </div>
+  </footer>
+
+  <script src="scripts/menu.js" defer></script>
+  <script src="scripts/footer.js" defer></script>
+  <script src="scripts/join.js" defer></script>
 </body>
 </html>

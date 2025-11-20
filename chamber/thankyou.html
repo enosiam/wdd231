@@ -1,69 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Thank You</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Thank You - Enosiam Chamber</title>
+  <meta name="description" content="Thank you for applying to the Enosiam Chamber of Commerce.">
+  <meta name="author" content="Emmanuel Eno Effiong">
   <link rel="stylesheet" href="styles/base.css">
   <link rel="stylesheet" href="styles/larger.css">
 </head>
 <body>
-<header>
-  <h1>Enosiam Chamber of Commerce</h1>
-  <nav>
-    <ul>
-      <li><a href="index.html">Home</a></li>
-      <li><a href="directory.html">Directory</a></li>
-      <li><a href="join.html">Join</a></li>
-    </ul>
-  </nav>
-</header>
+  <header class="site-header" role="banner">
+    <div class="wrap site-header-inner">
+      <div class="brand">
+        <img src="images/logo.jpg" alt="Enosiam Chamber of Commerce logo" width="55" height="55">
+        <span class="brand-name">Enosiam Chamber of Commerce</span>
+      </div>
+      <nav id="primaryNav" class="nav" role="navigation"><ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="directory.html">Directory</a></li>
+        <li><a href="discover.html">Discover</a></li>
+        <li><a href="join.html">Join</a></li>
+      </ul></nav>
+    </div>
+  </header>
 
-<main>
-  <h2>Thank You for Your Submission!</h2>
-  <p>Here is the information you submitted:</p>
-  <ul id="formDataList"></ul>
-</main>
+  <main class="wrap" role="main">
+    <h1>Thank you for your application!</h1>
+    <p>The details you submitted:</p>
+    <ul id="submittedInfo"></ul>
+    <p><a href="index.html">Return to home</a></p>
+  </main>
 
-<script>
-  // Read GET parameters from URL
-  const params = new URLSearchParams(window.location.search);
-  const formDataList = document.getElementById('formDataList');
+  <footer class="site-footer"><div class="wrap">
+    <p>&copy; <span id="copyrightYear"></span> Enosiam Chamber of Commerce</p>
+  </div></footer>
 
-  const fields = [
-    {name: 'firstName', label: 'First Name'},
-    {name: 'lastName', label: 'Last Name'},
-    {name: 'email', label: 'Email'},
-    {name: 'phone', label: 'Mobile Phone'},
-    {name: 'businessName', label: 'Business/Organization Name'},
-    {name: 'timestamp', label: 'Form Submission Time'}
-  ];
+  <script src="scripts/footer.js" defer></script>
+  <script>
+    (function showSubmitted() {
+      const params = new URLSearchParams(window.location.search);
+      const output = document.getElementById('submittedInfo');
+      const fields = [
+        { key: 'firstName', label: 'First name' },
+        { key: 'lastName', label: 'Last name' },
+        { key: 'email', label: 'Email' },
+        { key: 'mobile', label: 'Mobile phone' },
+        { key: 'businessName', label: 'Business/Organization' },
+        { key: 'timestamp', label: 'Form loaded at' }
+      ];
 
-  fields.forEach(f => {
-    const li = document.createElement('li');
-    li.textContent = `${f.label}: ${params.get(f.name) || 'N/A'}`;
-    formDataList.appendChild(li);
-  });
-</script>
+      fields.forEach(f => {
+        const li = document.createElement('li');
+        li.textContent = `${f.label}: ${params.get(f.key) || 'N/A'}`;
+        output.appendChild(li);
+      });
+    })();
+  </script>
 </body>
 </html>
-
-    <label>
-      Business Address:
-      <input type="text" name="businessAddress" title="Business Address" autocomplete="street-address" required>
-    </label>
-
-    <label>
-      Business Type:
-      <select name="businessType" title="Business Type" required>
-        <option value="" disabled selected>Select a type</option>
-        <option value="retail">Retail</option>
-        <option value="service">Service</option>
-        <option value="manufacturing">Manufacturing</option>
-        <option value="nonprofit">Non-Profit</option>
-        <option value="other">Other</option>
-      </select>
-    </label>
-
-    <button type="submit">Submit Application</button>
-  </form>

@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Enosiam Chamber of Commerce - Directory</title>
-  <meta name="description" content="Browse and connect with businesses that support economic growth and community development.">
+  <title>Enosiam Chamber of Commerce - Discover</title>
+  <meta name="description" content="Discover local resources, events, and highlights across Enosiam.">
   <meta name="author" content="Emmanuel Eno Effiong">
 
   <link rel="icon" href="favicon/favicon.ico" type="image/x-icon">
@@ -24,8 +24,8 @@
       <nav id="primaryNav" class="nav" role="navigation" aria-label="Primary Navigation">
         <ul>
           <li><a href="index.html">Home</a></li>
-          <li><a href="directory.html" class="active" aria-current="page">Directory</a></li>
-          <li><a href="discover.html">Discover</a></li>
+          <li><a href="directory.html">Directory</a></li>
+          <li><a href="discover.html" class="active" aria-current="page">Discover</a></li>
           <li><a href="join.html">Join</a></li>
         </ul>
       </nav>
@@ -33,28 +33,21 @@
   </header>
 
   <main id="main" class="wrap" role="main">
-    <h1>Member Directory</h1>
+    <h1>Discover Enosiam</h1>
+    <section class="events">
+      <h2>Local Resources & Events</h2>
+      <p>Curated resources for small businesses, training opportunities, and community events.</p>
+    </section>
 
-    <div class="controls">
-      <div class="view-toggle" role="tablist" aria-label="View toggle">
-        <button id="gridBtn" aria-pressed="true">Grid View</button>
-        <button id="listBtn" aria-pressed="false">List View</button>
-      </div>
-      <div class="filter">
-        <label>
-          Filter by membership:
-          <select id="membershipFilter">
-            <option value="all">All</option>
-            <option value="Gold">Gold</option>
-            <option value="Silver">Silver</option>
-            <option value="Bronze">Bronze</option>
-            <option value="NP">NP</option>
-          </select>
-        </label>
-      </div>
-    </div>
+    <section class="spotlights">
+      <h2>Top Neighborhoods</h2>
+      <p>Highlights of popular business districts and what makes them unique.</p>
+    </section>
 
-    <div id="memberContainer" class="grid-view" aria-live="polite"></div>
+    <section class="tools">
+      <h2>Business Tools</h2>
+      <p>Quick links to calculators and guides for new business owners.</p>
+    </section>
   </main>
 
   <footer class="site-footer" role="contentinfo">
@@ -65,12 +58,5 @@
 
   <script src="scripts/menu.js" defer></script>
   <script src="scripts/footer.js" defer></script>
-  <script src="scripts/directory.js" defer></script>
 </body>
 </html>
-
-
-
-
-
-
