@@ -2,52 +2,72 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Thank You - Enosiam Chamber</title>
   <meta name="description" content="Thank you for applying to the Enosiam Chamber of Commerce.">
-  <meta name="author" content="Emmanuel Eno Effiong">
+
   <link rel="stylesheet" href="styles/base.css">
   <link rel="stylesheet" href="styles/larger.css">
 </head>
+
 <body>
   <header class="site-header" role="banner">
     <div class="wrap site-header-inner">
+
+      <!-- mobile menu button (needed for your rubric) -->
+      <button id="menuBtn" aria-expanded="false" aria-label="Toggle Navigation">
+        ☰
+      </button>
+
       <div class="brand">
         <img src="images/logo.jpg" alt="Enosiam Chamber of Commerce logo" width="55" height="55">
         <span class="brand-name">Enosiam Chamber of Commerce</span>
       </div>
-      <nav id="primaryNav" class="nav" role="navigation"><ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="directory.html">Directory</a></li>
-        <li><a href="discover.html">Discover</a></li>
-        <li><a href="join.html">Join</a></li>
-      </ul></nav>
+
+      <nav id="primaryNav" class="nav" role="navigation">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="directory.html">Directory</a></li>
+          <li><a href="discover.html">Discover</a></li>
+          <li><a href="join.html">Join</a></li>
+        </ul>
+      </nav>
+
     </div>
   </header>
 
-  <main class="wrap" role="main">
-    <h1>Thank you for your application!</h1>
+  <main class="wrap">
+    <h1>Thank You for Your Application!</h1>
     <p>The details you submitted:</p>
+
     <ul id="submittedInfo"></ul>
+
     <p><a href="index.html">Return to home</a></p>
   </main>
 
-  <footer class="site-footer"><div class="wrap">
-    <p>&copy; <span id="copyrightYear"></span> Enosiam Chamber of Commerce</p>
-  </div></footer>
+  <footer class="site-footer">
+    <div class="wrap">
+      <p>&copy; <span id="copyrightYear"></span>
+      Enosiam Chamber of Commerce</p>
+    </div>
+  </footer>
 
   <script src="scripts/footer.js" defer></script>
+  <script src="scripts/main.js" defer></script>
+
+  <!-- Fill submitted info -->
   <script>
     (function showSubmitted() {
       const params = new URLSearchParams(window.location.search);
       const output = document.getElementById('submittedInfo');
+
       const fields = [
-        { key: 'firstName', label: 'First name' },
-        { key: 'lastName', label: 'Last name' },
+        { key: 'firstName', label: 'First Name' },
+        { key: 'lastName', label: 'Last Name' },
         { key: 'email', label: 'Email' },
-        { key: 'mobile', label: 'Mobile phone' },
+        { key: 'mobile', label: 'Mobile Phone' },
         { key: 'businessName', label: 'Business/Organization' },
-        { key: 'timestamp', label: 'Form loaded at' }
+        { key: 'timestamp', label: 'Form Loaded At' }
       ];
 
       fields.forEach(f => {

@@ -111,3 +111,19 @@ dialog::backdrop { background: rgba(0,0,0,0.45); }
   .hero-text h1 { font-size:2rem; }
   .events,.weather,.spotlights { padding:1.25rem; }
 }
+/* show nav when toggled */
+.nav-show { display: block !important; }
+
+/* Visible focus styles (accessibility) */
+button:focus, a:focus, input:focus, select:focus, textarea:focus {
+  outline: 3px solid rgba(0, 77, 122, 0.25);
+  outline-offset: 2px;
+}
+
+/* Ensure dialog backdrop covers whole page */
+dialog::backdrop {
+  background: rgba(0,0,0,0.45);
+}
+
+/* Prevent dialog from going full width on tiny screens */
+dialog { max-width: 90vw; box-sizing: border-box; }

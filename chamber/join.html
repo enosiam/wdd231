@@ -2,25 +2,34 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Join Enosiam Chamber of Commerce</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Join | Enosiam Chamber of Commerce</title>
   <meta name="description" content="Apply to join the Enosiam Chamber of Commerce as a member.">
   <meta name="author" content="Emmanuel Eno Effiong">
   <link rel="icon" href="favicon/favicon.ico" type="image/x-icon">
+
+  <!-- CSS -->
   <link rel="stylesheet" href="styles/base.css">
   <link rel="stylesheet" href="styles/larger.css">
 </head>
+
 <body>
   <a class="skip-link" href="#main">Skip to main content</a>
 
-  <header class="site-header" role="banner">
+  <header class="site-header">
     <div class="wrap site-header-inner">
+      
       <div class="brand">
-        <img src="images/logo.jpg" alt="Enosiam Chamber of Commerce logo" width="55" height="55">
+        <img src="images/logo.jpg" alt="Enosiam Chamber logo" width="55" height="55">
         <span class="brand-name">Enosiam Chamber of Commerce</span>
       </div>
-      <button id="menuBtn" aria-controls="primaryNav" aria-expanded="false" aria-label="Toggle navigation">☰</button>
-      <nav id="primaryNav" class="nav" role="navigation" aria-label="Primary Navigation">
+
+      <!-- FIX: Correct nav button structure -->
+      <button id="menuBtn" class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="primaryNav">
+        <span class="hamburger"></span>
+      </button>
+
+      <nav id="primaryNav" class="nav" aria-label="Primary Navigation">
         <ul>
           <li><a href="index.html">Home</a></li>
           <li><a href="directory.html">Directory</a></li>
@@ -28,125 +37,170 @@
           <li><a href="join.html" class="active" aria-current="page">Join</a></li>
         </ul>
       </nav>
+
     </div>
   </header>
 
-  <main id="main" class="wrap" role="main">
+  <main id="main" class="wrap">
+
     <h1>Membership Application</h1>
 
     <div class="membership-form-container">
+
       <form id="joinForm" method="get" action="thankyou.html" class="join-form" novalidate>
+
         <label>
           First Name
-          <input type="text" name="firstName" title="First Name" autocomplete="given-name" required>
+          <input type="text" 
+                 name="firstName"
+                 title="First Name"
+                 autocomplete="given-name"
+                 required>
         </label>
 
         <label>
           Last Name
-          <input type="text" name="lastName" title="Last Name" autocomplete="family-name" required>
+          <input type="text"
+                 name="lastName"
+                 title="Last Name"
+                 autocomplete="family-name"
+                 required>
         </label>
 
         <label>
           Organizational Title
-          <input type="text" name="orgTitle" title="Organizational Title" autocomplete="organization-title"
-                 pattern="[A-Za-z\s\-]{7,}" placeholder="e.g. Business-Manager" required>
+          <input type="text"
+                 name="orgTitle"
+                 title="Your title in the organization"
+                 autocomplete="organization-title"
+                 pattern="[A-Za-z\s-]{7,}"
+                 placeholder="e.g. Business Manager"
+                 required>
         </label>
 
         <label>
           Email Address
-          <input type="email" name="email" title="Email Address" autocomplete="email" placeholder="example@domain.com" required>
+          <input type="email"
+                 name="email"
+                 title="Email Address"
+                 autocomplete="email"
+                 placeholder="example@domain.com"
+                 required>
         </label>
 
         <label>
           Mobile Phone
-          <input type="tel" name="mobile" title="Mobile Phone" autocomplete="tel" required>
+          <input type="tel"
+                 name="mobile"
+                 title="Mobile Phone"
+                 autocomplete="tel"
+                 required>
         </label>
 
         <label>
           Business / Organization Name
-          <input type="text" name="businessName" title="Business Name" autocomplete="organization" required>
+          <input type="text"
+                 name="businessName"
+                 title="Business Name"
+                 autocomplete="organization"
+                 required>
         </label>
 
         <label>
           Membership Level
-          <select name="membership" title="Membership Level" required>
-            <option value="">-- select a membership level --</option>
-            <option value="np">NP Membership (np)</option>
-            <option value="bronze">Bronze Membership (bronze)</option>
-            <option value="silver">Silver Membership (silver)</option>
-            <option value="gold">Gold Membership (gold)</option>
+          <select name="membership"
+                  title="Membership Level"
+                  required>
+            <option value="">-- Select a membership level --</option>
+            <option value="np">NP Membership</option>
+            <option value="bronze">Bronze Membership</option>
+            <option value="silver">Silver Membership</option>
+            <option value="gold">Gold Membership</option>
           </select>
         </label>
 
         <label>
-          Business / Organization Description
-          <textarea name="description" title="Business Description" rows="4"></textarea>
+          Business Description
+          <textarea name="description"
+                    title="Business Description"
+                    rows="4"
+                    required></textarea>
         </label>
 
+        <!-- REQUIRED: Hidden timestamp -->
         <input type="hidden" name="timestamp" id="timestamp">
 
         <input type="submit" value="Submit Application">
       </form>
 
+      <!-- MEMBERSHIP CARDS WITH REQUIRED MODALS -->
       <aside class="membership-cards" aria-label="Membership Levels">
+
         <article class="card np">
           <h3>NP Membership</h3>
-          <a href="#npModal" class="open-modal" data-modal="npModal">Learn more</a>
+          <button class="open-modal" data-modal="npModal">Learn More</button>
         </article>
+
         <article class="card bronze">
           <h3>Bronze Membership</h3>
-          <a href="#bronzeModal" class="open-modal" data-modal="bronzeModal">Learn more</a>
+          <button class="open-modal" data-modal="bronzeModal">Learn More</button>
         </article>
+
         <article class="card silver">
           <h3>Silver Membership</h3>
-          <a href="#silverModal" class="open-modal" data-modal="silverModal">Learn more</a>
+          <button class="open-modal" data-modal="silverModal">Learn More</button>
         </article>
+
         <article class="card gold">
           <h3>Gold Membership</h3>
-          <a href="#goldModal" class="open-modal" data-modal="goldModal">Learn more</a>
+          <button class="open-modal" data-modal="goldModal">Learn More</button>
         </article>
+
       </aside>
     </div>
 
-    <!-- Dialogs -->
-    <dialog id="npModal" class="membership-dialog" aria-labelledby="npTitle">
-      <h3 id="npTitle">NP Membership Benefits</h3>
+    <!-- MODALS -->
+
+    <dialog id="npModal" class="membership-dialog">
+      <h3>NP Membership Benefits</h3>
       <ul>
         <li>No membership fee</li>
-        <li>Access to general networking events</li>
+        <li>General networking access</li>
       </ul>
       <button class="close-modal">Close</button>
     </dialog>
 
-    <dialog id="bronzeModal" class="membership-dialog" aria-labelledby="bronzeTitle">
-      <h3 id="bronzeTitle">Bronze Membership Benefits</h3>
+    <dialog id="bronzeModal" class="membership-dialog">
+      <h3>Bronze Membership Benefits</h3>
       <ul>
-        <li>Directory listing and member newsletter</li>
+        <li>Directory listing</li>
+        <li>Member newsletter</li>
         <li>Event discount</li>
       </ul>
       <button class="close-modal">Close</button>
     </dialog>
 
-    <dialog id="silverModal" class="membership-dialog" aria-labelledby="silverTitle">
-      <h3 id="silverTitle">Silver Membership Benefits</h3>
+    <dialog id="silverModal" class="membership-dialog">
+      <h3>Silver Membership Benefits</h3>
       <ul>
-        <li>Bronze benefits plus advertising spots</li>
+        <li>Bronze benefits + advertising spots</li>
         <li>Training access</li>
       </ul>
       <button class="close-modal">Close</button>
     </dialog>
 
-    <dialog id="goldModal" class="membership-dialog" aria-labelledby="goldTitle">
-      <h3 id="goldTitle">Gold Membership Benefits</h3>
+    <dialog id="goldModal" class="membership-dialog">
+      <h3>Gold Membership Benefits</h3>
       <ul>
-        <li>Silver benefits plus premium spotlight on home</li>
+        <li>Silver benefits + premium homepage spotlight</li>
         <li>Exclusive networking events</li>
       </ul>
       <button class="close-modal">Close</button>
     </dialog>
+
   </main>
 
-  <footer class="site-footer" role="contentinfo">
+  <footer class="site-footer">
     <div class="wrap">
       <p>&copy; <span id="copyrightYear"></span> Enosiam Chamber of Commerce</p>
     </div>
@@ -155,5 +209,6 @@
   <script src="scripts/menu.js" defer></script>
   <script src="scripts/footer.js" defer></script>
   <script src="scripts/join.js" defer></script>
+
 </body>
 </html>
