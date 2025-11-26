@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Site Plan - Forex & Trading Academy</title>
+
+  <!-- Typography & Colors -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --primary-color: #1a73e8; /* blue for headings & navigation */
+      --accent-color: #fbbc05;  /* yellow for highlights/buttons */
+      --bg-color: #f4f4f4;      /* background */
+      --text-color: #111111;    /* body text */
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg-color);
+      color: var(--text-color);
+      line-height: 1.6;
+      margin: 0;
+      padding: 1rem;
+    }
+
+    h1, h2, h3 {
+      color: var(--primary-color);
+    }
+
+    a { color: var(--accent-color); }
+
+    section {
+      margin-bottom: 2rem;
+      padding: 1rem;
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    .wireframe {
+      border: 2px dashed var(--primary-color);
+      padding: 1rem;
+      text-align: center;
+      margin-top: 1rem;
+      font-style: italic;
+      color: var(--text-color);
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Site Plan: Forex & Trading Academy</h1>
+  </header>
+
+  <!-- Site Name -->
+  <section>
+    <h2>Site Name</h2>
+    <p><strong>Forex & Trading Academy</strong></p>
+    <p>This name clearly identifies the site as an educational platform for learning Forex and trading strategies.</p>
+  </section>
+
+  <!-- Site Purpose -->
+  <section>
+    <h2>Site Purpose</h2>
+    <p>The site provides educational content for beginner and intermediate traders, including trading strategies, tools, and resources to improve financial literacy and trading skills.</p>
+  </section>
+
+  <!-- Scenarios -->
+  <section>
+    <h2>Visitor Scenarios</h2>
+    <ul>
+      <li>How can I learn risk-managed trading strategies quickly?</li>
+      <li>Where can I access calculators and tools to improve my trading decisions?</li>
+      <li>Can I track my learning progress on the site?</li>
+    </ul>
+  </section>
+
+  <!-- Color Scheme -->
+  <section>
+    <h2>Color Scheme</h2>
+    <ul>
+      <li><strong>Primary Color:</strong> #1a73e8 — headings, navigation, buttons.</li>
+      <li><strong>Accent Color:</strong> #fbbc05 — highlights, call-to-action elements.</li>
+      <li><strong>Background:</strong> #f4f4f4 — general background for sections.</li>
+      <li><strong>Text:</strong> #111111 — main body text.</li>
+    </ul>
+  </section>
+
+  <!-- Typography -->
+  <section>
+    <h2>Typography</h2>
+    <ul>
+      <li><strong>Inter:</strong> Main font for headings, body text, and buttons.</li>
+      <li>Weight 400 for body content and paragraphs.</li>
+      <li>Weight 600 for headings, emphasized text, and call-to-action buttons.</li>
+    </ul>
+  </section>
+
+  <!-- Wireframes -->
+  <section>
+    <h2>Wireframe</h2>
+    <h3>Mobile View</h3>
+    <div class="wireframe">
+      [Header with logo + hamburger menu]<br>
+      [Hero/Intro section + CTA]<br>
+      [Strategies preview (JSON list summary)]<br>
+      [Tools section: calculators, glossary]<br>
+      [Footer]
+    </div>
+
+    <h3>Desktop/Tablet View</h3>
+    <div class="wireframe">
+      [Header with logo + horizontal navigation]<br>
+      [Hero/Intro section + CTA button]<br>
+      [Two-column layout: left column with strategies list, right column with tools & features]<br>
+      [Modals for strategy examples]<br>
+      [Footer]
+    </div>
+  </section>
+
+  <!-- Services/Features -->
+  <section>
+    <h2>Services / Features</h2>
+    <ul>
+      <li>Interactive modals explaining strategy examples.</li>
+      <li>Save learning progress using local storage.</li>
+      <li>Search and filter strategies for easy access.</li>
+    </ul>
+  </section>
+</body>
+</html>
