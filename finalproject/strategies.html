@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trading Strategies</title>
+  <link rel="stylesheet" href="styles/base.css">
+  <link rel="stylesheet" href="styles/larger.css">
+  <script defer src="scripts/menu.js"></script>
+  <script defer src="scripts/footer.js"></script>
+  <script defer src="scripts/strategies.js"></script>
+  <script defer src="scripts/modal.js"></script>
+</head>
+
+<body>
+  <header>
+    <img src="images/logo.jpg" alt="Site Logo" class="logo">
+    <button id="menu-btn">☰</button>
+    <nav id="nav-menu">
+      <a href="index.html">Home</a>
+      <a href="strategies.html">Strategies</a>
+      <a href="tools.html">Tools</a>
+    </nav>
+  </header>
+
+  <main>
+    <h1>Trading Strategies</h1>
+    <input type="text" id="searchBar" placeholder="Search strategies">
+
+    <div id="strategy-list"></div>
+
+    <div id="modal" class="hidden">
+      <div class="modal-content">
+        <span id="close-modal">&times;</span>
+        <h2 id="modal-title"></h2>
+        <p id="modal-details"></p>
+      </div>
+    </div>
+  </main>
+
+  <footer></footer>
+</body>
+</html>

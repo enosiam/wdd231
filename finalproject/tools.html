@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trading Tools</title>
+  <link rel="stylesheet" href="styles/base.css">
+  <link rel="stylesheet" href="styles/larger.css">
+  <script defer src="scripts/menu.js"></script>
+  <script defer src="scripts/footer.js"></script>
+  <script defer src="scripts/tools.js"></script>
+  <script defer src="scripts/storage.js"></script>
+</head>
+
+<body>
+  <header>
+    <img src="images/logo.png" alt="Logo" class="logo">
+    <button id="menu-btn">☰</button>
+    <nav id="nav-menu">
+      <a href="index.html">Home</a>
+      <a href="strategies.html">Strategies</a>
+      <a href="tools.html">Tools</a>
+    </nav>
+  </header>
+
+  <main>
+    <h1>Trading Tools</h1>
+
+    <section>
+      <h2>Pip Calculator</h2>
+      <input type="number" id="lots" placeholder="Lots">
+      <input type="number" id="pips" placeholder="Pips Gained/Lost">
+      <button onclick="calcPip()">Calculate</button>
+      <p id="pip-result"></p>
+    </section>
+
+    <section>
+      <h2>Trading Psychology Tips</h2>
+      <ul id="psychology-list"></ul>
+    </section>
+
+  </main>
+
+  <footer></footer>
+</body>
+</html>

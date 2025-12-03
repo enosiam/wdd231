@@ -1,0 +1,16 @@
+[
+  {
+    "name": "Breakout Strategy",
+    "risk": "Medium",
+    "type": "Trend",
+    "rules": "Wait for breakout + retest before entry.",
+    "example": "Buy EURUSD after resistance break and retest."
+  },
+  {
+    "name": "Scalping Strategy",
+    "risk": "High",
+    "type": "Short-term",
+    "rules": "Use M1 chart, fast entries, strict SL.",
+    "example": "Quick scalps during London session."
+  }
+]

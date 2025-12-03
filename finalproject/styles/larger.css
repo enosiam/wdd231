@@ -1,0 +1,11 @@
+@media (min-width: 700px) {
+  nav {
+    display: flex !important;
+    gap: 1rem;
+  }
+
+  #menu-btn {
+    display: none;
+  }
+}
+/* page-specific larger view fixes */
