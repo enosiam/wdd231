@@ -66,3 +66,67 @@ a:focus,button:focus,input:focus,select:focus,textarea:focus{outline:3px solid r
   .nav a{padding:.5rem .75rem;color:#fff}
   #menuBtn{display:none}
 }
+
+/* MARKET NEWS CARDS */
+.news-grid {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: 1fr;
+  margin-top: 1rem;
+}
+
+@media (min-width: 700px) {
+  .news-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.news-card {
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.1);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.news-img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+}
+
+.news-content {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.news-title {
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.news-description {
+  font-size: 0.9rem;
+  flex-grow: 1;
+  color: #555;
+}
+
+.news-source {
+  font-size: 0.8rem;
+  color: #777;
+  margin-top: 0.5rem;
+}
+
+.news-link {
+  margin-top: 0.8rem;
+  font-weight: 600;
+  display: inline-block;
+  color: #1565df;
+}
+.news-link:hover {
+  text-decoration: underline;
+}
