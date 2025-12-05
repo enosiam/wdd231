@@ -1,53 +1,68 @@
-:root {
-  --primary: #000000;
-  --accent: #000000;
-  --dark: #111;
-  --light: #fff;
-  --font: "Poppins", sans-serif;
+/* base.css - core variables and base layout */
+:root{
+  --brand:#004d7a;
+  --accent:#c14400;
+  --bg:#f6f6f6;
+  --card:#fff;
+  --text:#111;
+  --muted:#666;
+  --gold:#ffd700;
+  --radius:8px;
+  --max-width:1100px;
+  --shadow: 0 6px 18px rgba(0,0,0,0.08);
+  font-size:16px;
 }
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  -webkit-font-smoothing:antialiased;
+  line-height:1.5;
+}
+.wrap{max-width:var(--max-width);margin:0 auto;padding:1rem}
+.skip-link{position:absolute;left:-999px;top:auto;width:1px;height:1px;overflow:hidden}
+.skip-link:focus{left:1rem;top:1rem;background:#fff;padding:.5rem;border-radius:4px;z-index:1000}
 
-body {
-  font-family: var(--font);
-  background: var(--light);
-  margin: 0;
-  padding: 0;
-}
+.site-header{background:var(--brand);color:#fff}
+.site-header-inner{display:flex;align-items:center;justify-content:space-between;padding:.75rem 1rem;gap:1rem}
+.brand{display:flex;align-items:center;gap:.6rem;text-decoration:none;color:#fff}
+.brand img{border-radius:6px}
+.brand-name{font-weight:600}
 
-header {
-  display: flex;
-  align-items: center;
-  background: var(--primary);
-  color: var(--light);
-  padding: 1rem;
-}
+#menuBtn{background:none;border:0;color:#fff;font-size:1.4rem;cursor:pointer}
+.nav{display:none;position:absolute;top:calc(100% + 8px);right:1rem;background:var(--brand);padding:.5rem;border-radius:6px}
+.nav ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column}
+.nav a{color:#fff;text-decoration:none;padding:.5rem 1rem;display:block}
+.nav a:hover{background:rgba(255,255,255,0.06)}
+.nav a.active{border-bottom:2px solid var(--gold)}
 
-nav {
-  display: none;
-}
+.hero{position:relative;border-radius:var(--radius);overflow:hidden;margin-top:1rem;background:linear-gradient(180deg, rgba(0,0,0,0.03), rgba(0,0,0,0.01))}
+.hero-img{width:100%;height:auto;display:block;object-fit:cover}
+.hero-text{position:relative;padding:1.25rem}
+.hero-text h1{margin:0 0 .5rem 0;font-size:1.6rem}
+.hero-text p{margin:0 0 .75rem 0;color:var(--muted)}
+.cta-btn{background:var(--accent);color:#fff;padding:.6rem .9rem;border-radius:6px;text-decoration:none;font-weight:600;margin-right:.5rem;display:inline-block}
+.cta-btn.ghost{background:transparent;border:1px solid rgba(0,0,0,0.06);color:var(--text)}
 
-#nav-menu.open {
-  display: block;
-}
+.spotlight-grid, .strategy-grid{display:grid;gap:1rem;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));margin-top:1rem}
+.spotlight-card, .strategy-card, .tool-card{background:var(--card);padding:1rem;border-radius:8px;box-shadow:var(--shadow);border:1px solid rgba(0,0,0,0.04)}
+.muted{color:var(--muted);font-size:.95rem}
+.controls{display:flex;gap:.5rem;flex-wrap:wrap;margin:1rem 0}
+.controls label{display:flex;flex-direction:column;font-size:.95rem}
 
-main {
-  padding: 1rem;
-}
+.strategy-card h3{margin:.25rem 0}
+button{cursor:pointer}
 
-.hero {
-  background: var(--accent);
-  padding: 2rem;
-  border-radius: 10px;
-  text-align: center;
-  color: var(--light);
-}
+/* small focus outline for accessibility */
+a:focus,button:focus,input:focus,select:focus,textarea:focus{outline:3px solid rgba(0,77,122,0.15);outline-offset:2px}
 
-.hidden {
-  display: none;
-}
-footer {
-  background: var(--dark);
-  color: var(--light);
-  text-align: center;
-  padding: 1rem;
-  margin-top: 2rem;
+/* simple responsive helpers */
+@media(min-width:800px){
+  .nav{position:static;display:block;background:transparent;padding:0}
+  .nav ul{flex-direction:row;gap:.25rem}
+  .nav a{padding:.5rem .75rem;color:#fff}
+  #menuBtn{display:none}
 }

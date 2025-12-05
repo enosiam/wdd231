@@ -1,46 +1,72 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Trading Tools</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Tools — Forex & Trading Academy</title>
+  <meta name="description" content="Traders' tools: position size calculator, risk/reward calculator, and glossary.">
+  <meta name="author" content="Emmanuel Eno Effiong">
+
+  <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+
   <link rel="stylesheet" href="styles/base.css">
   <link rel="stylesheet" href="styles/larger.css">
-  <script defer src="scripts/menu.js"></script>
-  <script defer src="scripts/footer.js"></script>
-  <script defer src="scripts/tools.js"></script>
-  <script defer src="scripts/storage.js"></script>
 </head>
-
 <body>
-  <header>
-    <img src="images/logo.png" alt="Logo" class="logo">
-    <button id="menu-btn">☰</button>
-    <nav id="nav-menu">
-      <a href="index.html">Home</a>
-      <a href="strategies.html">Strategies</a>
-      <a href="tools.html">Tools</a>
-    </nav>
+  <a class="skip-link" href="#main">Skip to main content</a>
+  <header class="site-header" role="banner">
+    <div class="wrap site-header-inner">
+      <a class="brand" href="index.html">
+        <img src="images/logo.png" alt="Forex & Trading Academy logo" width="56" height="56">
+        <span class="brand-name">Forex & Trading Academy</span>
+      </a>
+
+      <button id="menuBtn" aria-controls="primaryNav" aria-expanded="false" aria-label="Toggle navigation">☰</button>
+
+      <nav id="primaryNav" class="nav" role="navigation" aria-label="Primary">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="strategies.html">Strategies</a></li>
+          <li><a href="tools.html" class="active" aria-current="page">Tools</a></li>
+        </ul>
+      </nav>
+    </div>
   </header>
 
-  <main>
-    <h1>Trading Tools</h1>
+  <main id="main" class="wrap" role="main">
+    <h1>Tools</h1>
 
-    <section>
-      <h2>Pip Calculator</h2>
-      <input type="number" id="lots" placeholder="Lots">
-      <input type="number" id="pips" placeholder="Pips Gained/Lost">
-      <button onclick="calcPip()">Calculate</button>
-      <p id="pip-result"></p>
+    <section class="tools-grid">
+      <article class="tool-card">
+        <h2>Position Size Calculator</h2>
+        <label>Account size (USD): <input id="accountSize" type="number" value="1000"></label>
+        <label>Risk % per trade: <input id="riskPercent" type="number" value="1"></label>
+        <label>Stop loss (pips): <input id="stopPips" type="number" value="50"></label>
+        <button id="calcPosition">Calculate</button>
+        <p id="positionResult" class="muted"></p>
+      </article>
+
+      <article class="tool-card">
+        <h2>Glossary & Notes</h2>
+        <p>Save quick notes or terms below:</p>
+        <textarea id="notes" rows="6" placeholder="Write notes..."></textarea>
+        <p><button id="saveNotes">Save Notes (localStorage)</button> <button id="clearNotes">Clear</button></p>
+      </article>
     </section>
-
-    <section>
-      <h2>Trading Psychology Tips</h2>
-      <ul id="psychology-list"></ul>
-    </section>
-
   </main>
 
-  <footer></footer>
+  <footer class="site-footer" role="contentinfo">
+    <div class="wrap">
+      <p>&copy; <span id="copyrightYear"></span> Forex & Trading Academy</p>
+    </div>
+  </footer>
+
+  <script src="scripts/menu.js" defer></script>
+  <script src="scripts/footer.js" defer></script>
+  <script src="scripts/tools.js" defer></script>
+  <script src="scripts/storage.js" defer></script>
 </body>
 </html>

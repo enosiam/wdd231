@@ -1,16 +1,139 @@
-[
-  {
-    "name": "Breakout Strategy",
-    "risk": "Medium",
-    "type": "Trend",
-    "rules": "Wait for breakout + retest before entry.",
-    "example": "Buy EURUSD after resistance break and retest."
-  },
-  {
-    "name": "Scalping Strategy",
-    "risk": "High",
-    "type": "Short-term",
-    "rules": "Use M1 chart, fast entries, strict SL.",
-    "example": "Quick scalps during London session."
-  }
-]
+{
+  "strategies": [
+    {
+      "id": "s01",
+      "title": "Simple Moving Average Crossover",
+      "risk": "low",
+      "type": "trend",
+      "description": "Use a short SMA crossing a longer SMA to identify trend entries.",
+      "example": "Buy when SMA(10) crosses above SMA(50).",
+      "tags": ["sma","trend","beginner"]
+    },
+    {
+      "id": "s02",
+      "title": "RSI Pullback",
+      "risk": "low",
+      "type": "momentum",
+      "description": "Wait for RSI to dip near 30 during an uptrend and look for bullish divergence.",
+      "example": "Enter on bullish RSI divergence and price support.",
+      "tags": ["rsi","momentum"]
+    },
+    {
+      "id": "s03",
+      "title": "Breakout + Volume Confirmation",
+      "risk": "medium",
+      "type": "breakout",
+      "description": "Trade breakouts on higher volume with a retest as confirmation.",
+      "example": "Buy when price breaks resistance and retests support with volume spike.",
+      "tags": ["breakout","volume"]
+    },
+    {
+      "id": "s04",
+      "title": "Bollinger Band Mean Reversion",
+      "risk": "medium",
+      "type": "mean-reversion",
+      "description": "Fade moves to the outer Bollinger Bands when volatility is high.",
+      "example": "Short near upper band with stop above recent swing high.",
+      "tags": ["bollinger","mean-reversion"]
+    },
+    {
+      "id": "s05",
+      "title": "Support/Resistance Swing",
+      "risk": "low",
+      "type": "price-action",
+      "description": "Identify major support/resistance and trade bounces.",
+      "example": "Buy on confirmed support bounce with tight stop.",
+      "tags": ["support","resistance","price-action"]
+    },
+    {
+      "id": "s06",
+      "title": "Trend-Following ATR Trailing Stop",
+      "risk": "medium",
+      "type": "trend",
+      "description": "Use ATR-based trailing stops to let winners run while protecting capital.",
+      "example": "Trail stop at 2 x ATR below entry for long trades.",
+      "tags": ["atr","trend"]
+    },
+    {
+      "id": "s07",
+      "title": "Fibonacci Retracement Entry",
+      "risk": "medium",
+      "type": "pullback",
+      "description": "Use Fibonacci levels to find low-risk entry areas during a trend.",
+      "example": "Buy at 38.2–61.8% retracement with a confirm candle.",
+      "tags": ["fibonacci","retracement"]
+    },
+    {
+      "id": "s08",
+      "title": "News Fade (Short-term)",
+      "risk": "high",
+      "type": "news",
+      "description": "After an initial spike from news, fade the overreaction if fundamentals don't support the move.",
+      "example": "Wait for volatility to calm then take position with tight stop.",
+      "tags": ["news","short-term"]
+    },
+    {
+      "id": "s09",
+      "title": "Carry Trade (FX)",
+      "risk": "high",
+      "type": "carry",
+      "description": "Hold currencies with higher interest rates funded by lower-rate currencies.",
+      "example": "Long high-yield currency vs. low-yield currency, manage risk with stop-loss.",
+      "tags": ["carry","fx"]
+    },
+    {
+      "id": "s10",
+      "title": "Order Block / Market Structure",
+      "risk": "medium",
+      "type": "structure",
+      "description": "Align with institutional order blocks and market structure to find high probability entries.",
+      "example": "Enter when price returns to an identified order block and structure supports it.",
+      "tags": ["order-block","structure"]
+    },
+    {
+      "id": "s11",
+      "title": "EMA Pullback with Trend Filter",
+      "risk": "low",
+      "type": "trend",
+      "description": "Use EMA trend filter and wait for pullback to short EMA for entries.",
+      "example": "When EMA(21) > EMA(50) look for pullbacks to EMA(21) as entries.",
+      "tags": ["ema","trend"]
+    },
+    {
+      "id": "s12",
+      "title": "MACD Momentum Confirmation",
+      "risk": "medium",
+      "type": "momentum",
+      "description": "Combine MACD histogram divergence with price structure for entries.",
+      "example": "Look for MACD histogram changing direction near support/resistance.",
+      "tags": ["macd","momentum"]
+    },
+    {
+      "id": "s13",
+      "title": "High Probability Range Breakout",
+      "risk": "medium",
+      "type": "breakout",
+      "description": "Trade breakouts after consolidation with confirmation (retest or volume).",
+      "example": "Buy break of range high following retest and supportive volume.",
+      "tags": ["range","breakout"]
+    },
+    {
+      "id": "s14",
+      "title": "Scalping with VWAP",
+      "risk": "high",
+      "type": "scalp",
+      "description": "Scalp intraday using VWAP as mean, quick entries with small targets.",
+      "example": "Fade away from VWAP with quick target of few pips.",
+      "tags": ["vwap","scalp","intraday"]
+    },
+    {
+      "id": "s15",
+      "title": "Mean Reversion with Stochastic",
+      "risk": "low",
+      "type": "mean-reversion",
+      "description": "Use %K/%D stochastic signals at extreme levels to capture short-term reversals.",
+      "example": "Enter when stochastic crosses from oversold area in uptrend.",
+      "tags": ["stochastic","mean-reversion"]
+    }
+  ]
+}

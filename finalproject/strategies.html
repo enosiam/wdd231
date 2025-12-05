@@ -1,43 +1,88 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Trading Strategies</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Strategies — Forex & Trading Academy</title>
+  <meta name="description" content="Browse trading strategies: risk level, rules, and examples. Filter, search, and open a modal for details.">
+  <meta name="author" content="Emmanuel Eno Effiong">
+
+  <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+
   <link rel="stylesheet" href="styles/base.css">
   <link rel="stylesheet" href="styles/larger.css">
-  <script defer src="scripts/menu.js"></script>
-  <script defer src="scripts/footer.js"></script>
-  <script defer src="scripts/strategies.js"></script>
-  <script defer src="scripts/modal.js"></script>
 </head>
-
 <body>
-  <header>
-    <img src="images/logo.jpg" alt="Site Logo" class="logo">
-    <button id="menu-btn">☰</button>
-    <nav id="nav-menu">
-      <a href="index.html">Home</a>
-      <a href="strategies.html">Strategies</a>
-      <a href="tools.html">Tools</a>
-    </nav>
+  <a class="skip-link" href="#main">Skip to main content</a>
+  <header class="site-header" role="banner">
+    <div class="wrap site-header-inner">
+      <a class="brand" href="index.html">
+        <img src="images/logo.png" alt="Forex & Trading Academy logo" width="56" height="56">
+        <span class="brand-name">Forex & Trading Academy</span>
+      </a>
+
+      <button id="menuBtn" aria-controls="primaryNav" aria-expanded="false" aria-label="Toggle navigation">☰</button>
+
+      <nav id="primaryNav" class="nav" role="navigation" aria-label="Primary">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="strategies.html" class="active" aria-current="page">Strategies</a></li>
+          <li><a href="tools.html">Tools</a></li>
+        </ul>
+      </nav>
+    </div>
   </header>
 
-  <main>
+  <main id="main" class="wrap" role="main">
     <h1>Trading Strategies</h1>
-    <input type="text" id="searchBar" placeholder="Search strategies">
 
-    <div id="strategy-list"></div>
+    <section class="controls">
+      <label>
+        Search
+        <input id="searchInput" type="search" placeholder="Search strategies..." />
+      </label>
 
-    <div id="modal" class="hidden">
-      <div class="modal-content">
-        <span id="close-modal">&times;</span>
-        <h2 id="modal-title"></h2>
-        <p id="modal-details"></p>
+      <label>
+        Risk level
+        <select id="riskFilter">
+          <option value="">All</option>
+          <option value="low">Low</option>
+          <option value="medium">Medium</option>
+          <option value="high">High</option>
+        </select>
+      </label>
+
+      <button id="clearFilters">Clear</button>
+    </section>
+
+    <section aria-labelledby="list-heading">
+      <h2 id="list-heading">Available strategies</h2>
+      <div id="strategyList" class="strategy-grid" aria-live="polite">
+        <!-- injected by scripts/strategies.js -->
       </div>
-    </div>
+    </section>
   </main>
 
-  <footer></footer>
+  <!-- modal dialog used by strategies.js -->
+  <dialog id="strategyModal" aria-labelledby="strategyModalTitle">
+    <div id="strategyModalContent"></div>
+    <button id="closeStrategyModal" class="close-modal">Close</button>
+  </dialog>
+
+  <footer class="site-footer" role="contentinfo">
+    <div class="wrap">
+      <p>&copy; <span id="copyrightYear"></span> Forex & Trading Academy</p>
+      <p><a href="index.html">Home</a> • <a href="tools.html">Tools</a></p>
+    </div>
+  </footer>
+
+  <script src="scripts/menu.js" defer></script>
+  <script src="scripts/footer.js" defer></script>
+  <script type="module" src="scripts/strategies.js" defer></script>
+  <script src="scripts/modal.js" defer></script>
+  <script src="scripts/storage.js" defer></script>
 </body>
 </html>

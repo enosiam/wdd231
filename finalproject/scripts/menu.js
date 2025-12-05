@@ -1,6 +1,11 @@
-const btn = document.querySelector("#menu-btn");
-const nav = document.querySelector("#nav-menu");
+// accessible mobile nav toggle
+const menuBtn = document.getElementById('menuBtn');
+const primaryNav = document.getElementById('primaryNav');
 
-btn.addEventListener("click", () => {
-  nav.classList.toggle("open");
-});
+if (menuBtn && primaryNav) {
+  menuBtn.addEventListener('click', () => {
+    const expanded = menuBtn.getAttribute('aria-expanded') === 'true';
+    menuBtn.setAttribute('aria-expanded', String(!expanded));
+    primaryNav.classList.toggle('nav-show');
+  });
+}

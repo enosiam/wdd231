@@ -1,26 +1,65 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Thank You</title>
-  <link rel="stylesheet" href="styles/base.css">
-</head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Thank You — Forex & Trading Academy</title>
+  <meta name="description" content="Thank you for submitting the demo form.">
+  <meta name="author" content="Emmanuel Eno Effiong">
 
+  <link rel="stylesheet" href="styles/base.css">
+  <link rel="stylesheet" href="styles/larger.css">
+</head>
 <body>
-    <header>
-        <img src="images/logo.jpg" alt="Logo" class="logo">
-        <button id="menu-btn">☰</button>
-        <nav id="nav-menu">
-        <a href="index.html">Home</a>
-        <a href="strategies.html">Strategies</a>
-        <a href="tools.html">Tools</a>
-        </nav>
+  <header class="site-header" role="banner">
+    <div class="wrap site-header-inner">
+      <a class="brand" href="index.html">
+        <img src="images/logo.png" alt="Forex & Trading Academy logo" width="56" height="56">
+        <span class="brand-name">Forex & Trading Academy</span>
+      </a>
+      <nav id="primaryNav" class="nav" role="navigation">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="strategies.html">Strategies</a></li>
+          <li><a href="tools.html">Tools</a></li>
+        </ul>
+      </nav>
+    </div>
   </header>
-  <main>
-    <h1>Thank You!</h1>
-    <p>Your form was submitted successfully.</p>
-    <a href="index.html">Return Home</a>
+
+  <main class="wrap" role="main">
+    <h1>Thank you!</h1>
+    <p>Here are the details you submitted:</p>
+    <ul id="submittedInfo"></ul>
+    <p><a href="index.html">Return to Home</a></p>
   </main>
+
+  <footer class="site-footer" role="contentinfo">
+    <div class="wrap">
+      <p>&copy; <span id="copyrightYear"></span> Forex & Trading Academy</p>
+    </div>
+  </footer>
+
+  <script src="scripts/footer.js" defer></script>
+  <script>
+    // read URL params and display required fields
+    (function () {
+      const params = new URLSearchParams(window.location.search);
+      const fields = [
+        { key: 'firstName', label: 'First name' },
+        { key: 'lastName', label: 'Last name' },
+        { key: 'email', label: 'Email' },
+        { key: 'mobile', label: 'Mobile' },
+        { key: 'businessName', label: 'Business/Org' },
+        { key: 'timestamp', label: 'Form loaded at' }
+      ];
+      const ul = document.getElementById('submittedInfo');
+      fields.forEach(f => {
+        const li = document.createElement('li');
+        li.textContent = `${f.label}: ${params.get(f.key) || 'N/A'}`;
+        ul.appendChild(li);
+      });
+    })();
+  </script>
 </body>
 </html>
