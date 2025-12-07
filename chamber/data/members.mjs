@@ -1,0 +1,58 @@
+export const members = [
+  {
+    "name": "Bright Tech Solutions",
+    "address": "14 Unity Road, Lagos, Nigeria",
+    "phone": "+2348035552211",
+    "website": "https://brighttech.com",
+    "image": "brighttech.jpg",
+    "membership": "Gold"
+  },
+  {
+    "name": "Green Leaf Farming Co.",
+    "address": "Plot 22 Farm Estate, Kaduna, Nigeria",
+    "phone": "+2348092211199",
+    "website": "https://greenleaffarm.ng",
+    "image": "greenleaf.jpg",
+    "membership": "Silver"
+  },
+  {
+    "name": "Royal Prints & Branding",
+    "address": "Shop 5 Market Plaza, Abuja, Nigeria",
+    "phone": "+2347019903344",
+    "website": "https://royalprints.com",
+    "image": "royalprints.jpg",
+    "membership": "Bronze"
+  },
+  {
+    "name": "Swift Code Academy",
+    "address": "12 Education Lane, Ibadan, Nigeria",
+    "phone": "+2348103004432",
+    "website": "https://swiftcodeacademy.ng",
+    "image": "swiftcode.jpg",
+    "membership": "Gold"
+  },
+  {
+    "name": "Urban Ride Transport",
+    "address": "44 Central Bus Park, Enugu, Nigeria",
+    "phone": "+2348029945512",
+    "website": "https://urbanride.com",
+    "image": "urbanride.jpg",
+    "membership": "Silver"
+  },
+  {
+    "name": "Blue Wave Fashion",
+    "address": "Mall Suite 12, Kano, Nigeria",
+    "phone": "+2348071228881",
+    "website": "https://bluewavefashion.ng",
+    "image": "bluewave.jpg",
+    "membership": "Bronze"
+  },
+  {
+    "name": "Peak Finance Group",
+    "address": "19 Banking Street, Port Harcourt, Nigeria",
+    "phone": "+2348083336677",
+    "website": "https://peakfinance.com",
+    "image": "peakfinance.jpg",
+    "membership": "Gold"
+  }
+];
