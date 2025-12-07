@@ -53,8 +53,8 @@ const items = [
   {
     "id": 7,
     "title": "Enugu Transport Hub",
-    "address": "Central Bus Park, Enosiam",
-    "description": "Well-connected transport node linking Enosiam to nearby towns and trade routes.",
+    "address": "Central Bus Park, Enugu",
+    "description": "Well-connected transport node linking Enugu to nearby towns and trade routes.",
     "image": "images/attraction7.jpg",
     "url": "#"
   },

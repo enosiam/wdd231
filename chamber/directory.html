@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Enosiam Chamber of Commerce - Directory</title>
+  <meta name="description" content="Browse and connect with businesses that support economic growth and community development.">
+  <meta name="author" content="Emmanuel Eno Effiong">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+
+  <link rel="icon" href="favicon/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="styles/base.css">
+  <link rel="stylesheet" href="styles/larger.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <header class="site-header" role="banner">
+    <div class="wrap site-header-inner">
+      <div class="brand">
+        <img src="images/logo.jpg" alt="Enosiam Chamber of Commerce logo" width="55" height="55">
+        <span class="brand-name">Enosiam Chamber of Commerce</span>
+      </div>
+      <button id="menuBtn" aria-controls="primaryNav" aria-expanded="false" aria-label="Toggle navigation">☰</button>
+      <nav id="primaryNav" class="nav" role="navigation" aria-label="Primary Navigation">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="directory.html" class="active" aria-current="page">Directory</a></li>
+          <li><a href="discover.html">Discover</a></li>
+          <li><a href="join.html">Join</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" class="wrap" role="main">
+    <h1>Member Directory</h1>
+
+    <div class="controls">
+      <div class="view-toggle" role="tablist" aria-label="View toggle">
+        <button id="gridBtn" aria-pressed="true">Grid View</button>
+        <button id="listBtn" aria-pressed="false">List View</button>
+      </div>
+      <div class="filter">
+        <label>
+          Filter by membership:
+          <select id="membershipFilter">
+            <option value="all">All</option>
+            <option value="Gold">Gold</option>
+            <option value="Silver">Silver</option>
+            <option value="Bronze">Bronze</option>
+            <option value="NP">NP</option>
+          </select>
+        </label>
+      </div>
+    </div>
+
+    <div id="memberContainer" class="grid-view" aria-live="polite"></div>
+  </main>
+
+  <footer class="site-footer" role="contentinfo">
+    <div class="wrap">
+      <p>&copy; <span id="copyrightYear"></span> | Enosiam Chamber of Commerce | WDD 231 | <span id="lastModified"></span></p>
+    </div>
+  </footer>
+
+  <script src="scripts/menu.js" defer></script>
+  <script src="scripts/footer.js" defer></script>
+  <script src="scripts/directory.js" defer></script>
+</body>
+</html>
+
+
+
+
+
+
