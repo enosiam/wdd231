@@ -3,13 +3,13 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>AMD Academy — Home</title>
-  <meta name="description" content="AMD Academy — learn strategies, use tools, and track your progress as you build trading knowledge.">
+  <title>AMD Academy — Learn Trading Smarter</title>
+  <meta name="description" content="AMD Academy — Learn strategies, use tools, and track your trading progress with clean tutorials and interactive tools.">
   <meta name="author" content="Emmanuel Eno Effiong">
 
   <!-- Open Graph -->
   <meta property="og:title" content="AMD Academy — Learn Trading Strategies">
-  <meta property="og:description" content="Educational trading site: strategies, tools, calculators, and guided lessons to help you learn trading safely.">
+  <meta property="og:description" content="Educational trading site with strategies, tools, calculators and guided lessons to help you learn forex in a safe, structured way.">
   <meta property="og:image" content="images/og-image.jpg">
   <meta property="og:url" content="https://enosiam.github.io/finalproject/index.html">
   <meta property="og:type" content="website">
@@ -19,25 +19,30 @@
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="styles/base.css">
   <link rel="stylesheet" href="styles/larger.css">
 </head>
+
 <body>
   <a class="skip-link" href="#main">Skip to main content</a>
-  <header class="site-header" role="banner">
+
+  <!-- HEADER -->
+  <header class="site-header glass-header">
     <div class="wrap site-header-inner">
       <a class="brand" href="index.html">
-        <img src="images/logo.jpg" alt="Forex & Trading Academy logo" width="56" height="56">
+        <img src="images/logo.jpg" alt="Academy logo" width="56" height="56">
         <span class="brand-name">AMD Academy</span>
       </a>
 
-      <button id="menuBtn" aria-controls="primaryNav" aria-expanded="false" aria-label="Toggle navigation">☰</button>
+      <button id="menuBtn" aria-controls="primaryNav" aria-expanded="false" aria-label="Toggle navigation">
+        ☰
+      </button>
 
-      <nav id="primaryNav" class="nav" role="navigation" aria-label="Primary">
+      <nav id="primaryNav" class="nav">
         <ul>
-          <li><a href="index.html" class="active" aria-current="page">Home</a></li>
+          <li><a href="index.html" class="active">Home</a></li>
           <li><a href="strategies.html">Strategies</a></li>
           <li><a href="tools.html">Tools</a></li>
         </ul>
@@ -45,48 +50,71 @@
     </div>
   </header>
 
-  <main id="main" class="wrap" role="main">
-    <section class="hero" aria-label="Site intro">
+  <!-- MAIN -->
+  <main id="main">
+
+    <!-- HERO SECTION -->
+    <section class="hero">
       <picture>
         <source srcset="images/stock.jpg" media="(min-width:800px)">
-        <img src="images/stock.jpg" alt="Desk with trading charts" class="hero-img" loading="lazy">
+        <img src="images/stock.jpg" alt="Trading chart desk" class="hero-img" loading="lazy">
       </picture>
-      <div class="hero-text">
-        <h1>AMD Forex & Trading Academy</h1>
-        <p>Learn trading strategies, practice with tools and calculators, and track your learning progress.</p>
-        <p><a class="cta-btn" href="strategies.html">Browse Strategies</a> <a class="cta-btn ghost" href="tools.html">Open Tools</a></p>
+
+      <div class="hero-overlay"></div>
+
+      <div class="hero-text fade-in">
+        <h1>Master Trading With Confidence</h1>
+        <p>Learn proven strategies, use interactive tools, and build real trading skills — the smart and safe way.</p>
+
+        <div class="hero-btns">
+          <a class="cta-btn" href="strategies.html">Explore Strategies</a>
+          <a class="cta-btn ghost" href="tools.html">Open Tools</a>
+        </div>
       </div>
     </section>
 
-    <section class="spotlights" aria-labelledby="spotlight-heading">
-      <h2 id="spotlight-heading">Featured Strategies (random)</h2>
-      <div id="spotlights" class="spotlight-grid" aria-live="polite">
-        <!-- strategies.js injects 2-3 featured cards here -->
+    <!-- FEATURED STRATEGIES -->
+    <section class="spotlights">
+      <h2>Featured Strategies</h2>
+      <p class="subtext">Randomly selected each visit — discover something new.</p>
+
+      <div id="spotlights" class="spotlight-grid fade-up" aria-live="polite">
+        <!-- strategies.js injects here -->
       </div>
     </section>
 
-    <section class="news" aria-labelledby="news-heading">
-  <h2 id="news-heading">Market News</h2>
-  <div id="market-news" aria-live="polite">
-    <p>Loading market news…</p>
-  </div>
-</section>
+    <!-- MARKET NEWS -->
+    <section class="news fade-up">
+      <h2>Market News</h2>
+      <p class="subtext">Live forex updates</p>
 
+      <div id="market-news" aria-live="polite">
+        <p>Loading market news…</p>
+      </div>
+    </section>
 
   </main>
 
-  <footer class="site-footer" role="contentinfo">
+  <!-- FOOTER -->
+  <footer class="site-footer">
     <div class="wrap">
-      <p>&copy; <span id="copyrightYear"></span> AMD Academy — Emmanuel Eno Effiong</p>
-      <p><a href="thankyou.html">Form video-demo-link (thank you)</a> • <a href="video-demo-link.txt">Video demo link</a></p>
+      <p>&copy; <span id="copyrightYear"></span> 
+        AMD Academy — Built by Emmanuel Eno Effiong
+      </p>
+      <p>
+        <a href="thankyou.html">Form (Thank You)</a> • 
+        <a href="video-demo-link.txt">Video Demo</a>
+      </p>
     </div>
   </footer>
 
+  <!-- Scripts -->
   <script src="scripts/menu.js" defer></script>
   <script src="scripts/footer.js" defer></script>
   <script src="scripts/marketnews.js" defer></script>
   <script type="module" src="scripts/strategies.js" defer></script>
   <script src="scripts/modal.js" defer></script>
   <script src="scripts/storage.js" defer></script>
+
 </body>
 </html>

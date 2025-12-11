@@ -7,17 +7,25 @@
   <meta name="description" content="Thank you for submitting the demo form.">
   <meta name="author" content="Emmanuel Eno Effiong">
 
+  <link rel="icon" href="favicon/favicon.ico" type="image/x-icon">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+
   <link rel="stylesheet" href="styles/base.css">
   <link rel="stylesheet" href="styles/larger.css">
 </head>
 <body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
   <header class="site-header" role="banner">
     <div class="wrap site-header-inner">
       <a class="brand" href="index.html">
         <img src="images/logo.jpg" alt="AMD Academy logo" width="56" height="56">
         <span class="brand-name">AMD Academy</span>
       </a>
-      <nav id="primaryNav" class="nav" role="navigation">
+
+      <nav id="primaryNav" class="nav" role="navigation" aria-label="Primary">
         <ul>
           <li><a href="index.html">Home</a></li>
           <li><a href="strategies.html">Strategies</a></li>
@@ -27,22 +35,31 @@
     </div>
   </header>
 
-  <main class="wrap" role="main">
-    <h1>Thank you!</h1>
-    <p>Here are the details you submitted:</p>
-    <ul id="submittedInfo"></ul>
-    <p><a href="index.html">Return to Home</a></p>
+  <main id="main" class="wrap" role="main">
+    <section class="page-hero" aria-labelledby="thankTitle">
+      <h1 id="thankTitle">Thanks — your demo submission was received</h1>
+      <p class="muted">We stored your details and a confirmation has been prepared.</p>
+    </section>
+
+    <section aria-labelledby="detailsHeading" style="margin-top:1rem;">
+      <h2 id="detailsHeading">Submitted details</h2>
+      <p class="muted">If you provided contact details they will appear below. We don't share your data.</p>
+
+      <ul id="submittedInfo" style="margin-top:.75rem;list-style:disc;padding-left:1.25rem"></ul>
+
+      <p style="margin-top:1rem;"><a class="cta-btn" href="index.html">Return to Home</a></p>
+    </section>
   </main>
 
   <footer class="site-footer" role="contentinfo">
     <div class="wrap">
-      <p>&copy; <span id="copyrightYear"></span> Forex & Trading Academy</p>
+      <p>&copy; <span id="copyrightYear"></span> AMD Academy — Emmanuel Eno Effiong</p>
     </div>
   </footer>
 
   <script src="scripts/footer.js" defer></script>
   <script>
-    // read URL params and display required fields
+    // read URL params and display required fields (keeps same behaviour but prettier)
     (function () {
       const params = new URLSearchParams(window.location.search);
       const fields = [
@@ -50,13 +67,14 @@
         { key: 'lastName', label: 'Last name' },
         { key: 'email', label: 'Email' },
         { key: 'mobile', label: 'Mobile' },
-        { key: 'businessName', label: 'Business/Org' },
+        { key: 'businessName', label: 'Business / Organization' },
         { key: 'timestamp', label: 'Form loaded at' }
       ];
       const ul = document.getElementById('submittedInfo');
       fields.forEach(f => {
+        const value = params.get(f.key);
         const li = document.createElement('li');
-        li.textContent = `${f.label}: ${params.get(f.key) || 'N/A'}`;
+        li.textContent = `${f.label}: ${value ? value : 'N/A'}`;
         ul.appendChild(li);
       });
     })();

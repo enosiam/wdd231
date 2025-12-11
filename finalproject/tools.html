@@ -17,6 +17,7 @@
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to main content</a>
+
   <header class="site-header" role="banner">
     <div class="wrap site-header-inner">
       <a class="brand" href="index.html">
@@ -37,30 +38,82 @@
   </header>
 
   <main id="main" class="wrap" role="main">
-    <h1>Tools</h1>
+    <section class="page-hero">
+      <h1>Tools</h1>
+      <p class="muted">Handy calculators and a quick notes area. Results update live.</p>
+    </section>
 
-    <section class="tools-grid">
-      <article class="tool-card">
-        <h2>Position Size Calculator</h2>
-        <label>Account size (USD): <input id="accountSize" type="number" value="1000"></label>
-        <label>Risk % per trade: <input id="riskPercent" type="number" value="1"></label>
-        <label>Stop loss (pips): <input id="stopPips" type="number" value="50"></label>
-        <button id="calcPosition">Calculate</button>
-        <p id="positionResult" class="muted"></p>
+    <section class="tools-grid" aria-labelledby="toolsHeading">
+      <article class="tool-card" aria-labelledby="posTitle">
+        <h2 id="posTitle">Position Size Calculator</h2>
+
+        <div style="display:grid;gap:.5rem;">
+          <label>Account size (USD)
+            <input id="accountSize" type="number" inputmode="numeric" min="0" value="1000" aria-label="Account size in US dollars">
+          </label>
+
+          <label>Risk % per trade
+            <input id="riskPercent" type="number" min="0" max="100" value="1" aria-label="Risk percentage per trade">
+          </label>
+
+          <label>Stop loss (pips)
+            <input id="stopPips" type="number" min="0" value="50" aria-label="Stop loss in pips">
+          </label>
+
+          <label>Value per pip (USD) — optional
+            <input id="pipValue" type="number" min="0" step="0.01" placeholder="e.g. 0.10 (micro lot)" aria-label="Pip value in USD (optional)">
+          </label>
+
+          <div style="display:flex;gap:.5rem;align-items:center">
+            <button id="calcPosition" type="button" class="cta-btn">Calculate</button>
+            <button id="resetCalc" type="button">Reset</button>
+          </div>
+        </div>
+
+        <p id="positionResult" class="muted" style="margin-top:.75rem;">Enter values and press Calculate.</p>
       </article>
 
-      <article class="tool-card">
-        <h2>Glossary & Notes</h2>
-        <p>Save quick notes or terms below:</p>
-        <textarea id="notes" rows="6" placeholder="Write notes..."></textarea>
-        <p><button id="saveNotes">Save Notes (localStorage)</button> <button id="clearNotes">Clear</button></p>
+      <article class="tool-card" aria-labelledby="notesTitle">
+        <h2 id="notesTitle">Quick Notes</h2>
+        <p class="muted">Save small notes locally — useful for trade ideas or terms.</p>
+        <textarea id="notes" rows="8" placeholder="Write notes..." aria-label="Notes"></textarea>
+
+        <div style="display:flex;gap:.5rem;margin-top:.5rem;">
+          <button id="saveNotes" type="button">Save Notes</button>
+          <button id="clearNotes" type="button">Clear</button>
+        </div>
+
+        <p id="notesStatus" class="muted" style="margin-top:.5rem;">Notes are stored in your browser (localStorage).</p>
+      </article>
+
+      <article class="tool-card" aria-labelledby="rrTitle">
+        <h2 id="rrTitle">Simple Risk/Reward Helper</h2>
+
+        <label>Entry price
+          <input id="entryPrice" type="number" step="0.0001" inputmode="decimal" placeholder="e.g. 1.2345">
+        </label>
+
+        <label>Stop loss
+          <input id="stopPrice" type="number" step="0.0001" inputmode="decimal" placeholder="e.g. 1.2290">
+        </label>
+
+        <label>Target price
+          <input id="targetPrice" type="number" step="0.0001" inputmode="decimal" placeholder="e.g. 1.2440">
+        </label>
+
+        <div style="display:flex;gap:.5rem;margin-top:.5rem;">
+          <button id="calcRR" type="button">Calculate R:R</button>
+          <button id="resetRR" type="button">Reset</button>
+        </div>
+
+        <p id="rrResult" class="muted" style="margin-top:.75rem;"></p>
       </article>
     </section>
   </main>
 
   <footer class="site-footer" role="contentinfo">
     <div class="wrap">
-      <p>&copy; <span id="copyrightYear"></span> Forex & Trading Academy</p>
+      <p>&copy; <span id="copyrightYear"></span> AMD Academy — Emmanuel Eno Effiong</p>
     </div>
   </footer>
 
@@ -68,5 +121,120 @@
   <script src="scripts/footer.js" defer></script>
   <script src="scripts/tools.js" defer></script>
   <script src="scripts/storage.js" defer></script>
+
+  <!-- Small progressive JS additions (safe if scripts/tools.js exists; otherwise they provide instant UX) -->
+  <script>
+    (function () {
+      // Position size calculator (basic)
+      function calcPositionSize(account, riskPct, stopPips, pipValue) {
+        // Risk in currency
+        const riskCurrency = (account * (riskPct / 100));
+        // if pipValue provided: position size (lots) = riskCurrency / (stopPips * pipValue)
+        // If pipValue omitted, we provide trade risk in currency instead.
+        if (pipValue && pipValue > 0 && stopPips > 0) {
+          return {
+            lots: +(riskCurrency / (stopPips * pipValue)).toFixed(4),
+            riskCurrency: +riskCurrency.toFixed(2)
+          };
+        } else {
+          return { lots: null, riskCurrency: +riskCurrency.toFixed(2) };
+        }
+      }
+
+      const accountInput = document.getElementById('accountSize');
+      const riskInput = document.getElementById('riskPercent');
+      const stopInput = document.getElementById('stopPips');
+      const pipValueInput = document.getElementById('pipValue');
+      const btnCalc = document.getElementById('calcPosition');
+      const resEl = document.getElementById('positionResult');
+      const resetCalc = document.getElementById('resetCalc');
+
+      btnCalc?.addEventListener('click', () => {
+        const account = parseFloat(accountInput.value) || 0;
+        const risk = parseFloat(riskInput.value) || 0;
+        const stop = parseFloat(stopInput.value) || 0;
+        const pipValue = parseFloat(pipValueInput.value) || 0;
+
+        const result = calcPositionSize(account, risk, stop, pipValue);
+        if (result.lots !== null) {
+          resEl.textContent = `Risk: $${result.riskCurrency} — Suggested position size: ${result.lots} lots (approx).`;
+        } else {
+          resEl.textContent = `Risk per trade: $${result.riskCurrency}. Provide pip value to calculate lots.`;
+        }
+      });
+
+      resetCalc?.addEventListener('click', () => {
+        accountInput.value = 1000;
+        riskInput.value = 1;
+        stopInput.value = 50;
+        pipValueInput.value = '';
+        resEl.textContent = 'Enter values and press Calculate.';
+      });
+
+      // Notes (localStorage)
+      const notes = document.getElementById('notes');
+      const saveNotes = document.getElementById('saveNotes');
+      const clearNotes = document.getElementById('clearNotes');
+      const notesStatus = document.getElementById('notesStatus');
+
+      // Load saved notes
+      try {
+        const saved = localStorage.getItem('amd_notes_v1');
+        if (saved) notes.value = saved;
+      } catch (e) { /* ignore */ }
+
+      saveNotes?.addEventListener('click', () => {
+        try {
+          localStorage.setItem('amd_notes_v1', notes.value);
+          notesStatus.textContent = 'Notes saved locally.';
+        } catch (e) {
+          notesStatus.textContent = 'Unable to save notes in this browser.';
+        }
+      });
+
+      clearNotes?.addEventListener('click', () => {
+        notes.value = '';
+        try {
+          localStorage.removeItem('amd_notes_v1');
+        } catch (e) { /* ignore */ }
+        notesStatus.textContent = 'Notes cleared.';
+      });
+
+      // Risk/Reward helper
+      const entry = document.getElementById('entryPrice');
+      const stop = document.getElementById('stopPrice');
+      const target = document.getElementById('targetPrice');
+      const calcRR = document.getElementById('calcRR');
+      const rrResult = document.getElementById('rrResult');
+      const resetRR = document.getElementById('resetRR');
+
+      calcRR?.addEventListener('click', () => {
+        const e = parseFloat(entry.value);
+        const s = parseFloat(stop.value);
+        const t = parseFloat(target.value);
+        if (!e || !s || !t) {
+          rrResult.textContent = 'Enter entry, stop and target prices to calculate R:R';
+          return;
+        }
+        // risk = abs(entry - stop), reward = abs(target - entry)
+        const risk = Math.abs(e - s);
+        const reward = Math.abs(t - e);
+        if (risk === 0) {
+          rrResult.textContent = 'Risk is zero — check your stop loss.';
+          return;
+        }
+        const ratio = +(reward / risk).toFixed(2);
+        rrResult.textContent = `Risk: ${risk} — Reward: ${reward} — R:R = ${ratio}:1`;
+      });
+
+      resetRR?.addEventListener('click', () => {
+        entry.value = '';
+        stop.value = '';
+        target.value = '';
+        rrResult.textContent = '';
+      });
+
+    })();
+  </script>
 </body>
 </html>

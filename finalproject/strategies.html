@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Strategies — Forex & Trading Academy</title>
+  <title>Strategies — AMD Academy</title>
   <meta name="description" content="Browse trading strategies: risk level, rules, and examples. Filter, search, and open a modal for details.">
   <meta name="author" content="Emmanuel Eno Effiong">
 
@@ -17,6 +17,7 @@
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to main content</a>
+
   <header class="site-header" role="banner">
     <div class="wrap site-header-inner">
       <a class="brand" href="index.html">
@@ -37,17 +38,22 @@
   </header>
 
   <main id="main" class="wrap" role="main">
-    <h1>Trading Strategies</h1>
+    <section class="page-hero" aria-labelledby="pageTitle">
+      <h1 id="pageTitle">Trading Strategies</h1>
+      <p class="muted">Filter, search, and open strategy details. Click any card for the full rules and examples.</p>
+    </section>
 
-    <section class="controls">
+    <section class="controls" aria-labelledby="controlsHeading">
+      <h2 id="controlsHeading" class="visually-hidden">Strategy controls</h2>
+
       <label>
         Search
-        <input id="searchInput" type="search" placeholder="Search strategies..." />
+        <input id="searchInput" type="search" placeholder="Search strategies by name or tag" aria-label="Search strategies">
       </label>
 
       <label>
         Risk level
-        <select id="riskFilter">
+        <select id="riskFilter" aria-label="Filter by risk level">
           <option value="">All</option>
           <option value="low">Low</option>
           <option value="medium">Medium</option>
@@ -55,34 +61,112 @@
         </select>
       </label>
 
-      <button id="clearFilters">Clear</button>
+      <label>
+        Sort
+        <select id="sortSelect" aria-label="Sort strategies">
+          <option value="random">Random</option>
+          <option value="name">Name (A–Z)</option>
+          <option value="risk">Risk (Low → High)</option>
+        </select>
+      </label>
+
+      <div style="margin-left:auto;display:flex;gap:.5rem;">
+        <button id="clearFilters" type="button">Clear</button>
+        <button id="addFavorite" type="button" title="Save selected as favorite (uses localStorage)">Save sample favorite</button>
+      </div>
     </section>
 
     <section aria-labelledby="list-heading">
-      <h2 id="list-heading">Strategies</h2>
+      <h2 id="list-heading" class="visually-hidden">Strategies list</h2>
+
+      <!-- Fallback content (visible while scripts fetch/inject) -->
       <div id="strategyList" class="strategy-grid" aria-live="polite">
-        <!-- injected by scripts/strategies.js -->
+        <!-- Example progressive-enhancement cards (script will replace / add to these) -->
+        <article class="strategy-card" data-id="demo-1" tabindex="0" role="button" aria-pressed="false">
+          <h3>Demo Trend-Follow</h3>
+          <div class="strategy-meta muted">Risk: <strong>Medium</strong> • Timeframe: 1H–4H</div>
+          <p class="muted">Simple moving average crossover with risk management rules. Click to view details.</p>
+          <div class="strategy-actions">
+            <button class="open-detail" data-id="demo-1">Open</button>
+            <button class="favorite" data-id="demo-1" aria-pressed="false">☆ Favorite</button>
+          </div>
+        </article>
+
+        <article class="strategy-card" data-id="demo-2" tabindex="0" role="button" aria-pressed="false">
+          <h3>Demo Mean Reversion</h3>
+          <div class="strategy-meta muted">Risk: <strong>Low</strong> • Timeframe: 15m–1H</div>
+          <p class="muted">Oscillator-based entries near support/resistance. Click to view details.</p>
+          <div class="strategy-actions">
+            <button class="open-detail" data-id="demo-2">Open</button>
+            <button class="favorite" data-id="demo-2" aria-pressed="false">☆ Favorite</button>
+          </div>
+        </article>
       </div>
+
+      <!-- No-results message (hidden until needed) -->
+      <p id="noResults" class="muted" style="display:none;margin-top:1rem;">No strategies match your filters.</p>
     </section>
   </main>
 
   <!-- modal dialog used by strategies.js -->
   <dialog id="strategyModal" aria-labelledby="strategyModalTitle">
-    <div id="strategyModalContent"></div>
-    <button id="closeStrategyModal" class="close-modal">Close</button>
+    <div id="strategyModalContent" role="document"></div>
+    <div style="display:flex;justify-content:flex-end;margin-top:.75rem;">
+      <button id="closeStrategyModal" class="close-modal">Close</button>
+    </div>
   </dialog>
 
   <footer class="site-footer" role="contentinfo">
     <div class="wrap">
-      <p>&copy; <span id="copyrightYear"></span> Forex & Trading Academy</p>
+      <p>&copy; <span id="copyrightYear"></span> AMD Academy — Emmanuel Eno Effiong</p>
       <p><a href="index.html">Home</a> • <a href="tools.html">Tools</a></p>
     </div>
   </footer>
 
+  <!-- Keep your modular scripts; they will enhance the page -->
   <script src="scripts/menu.js" defer></script>
   <script src="scripts/footer.js" defer></script>
   <script type="module" src="scripts/strategies.js" defer></script>
   <script src="scripts/modal.js" defer></script>
   <script src="scripts/storage.js" defer></script>
+
+  <!-- Small inline enhancement to wire the controls to the global event system if strategies.js isn't loaded yet.
+       This is safe and only provides progressive behaviour. -->
+  <script>
+    (function () {
+      const search = document.getElementById('searchInput');
+      const risk = document.getElementById('riskFilter');
+      const sort = document.getElementById('sortSelect');
+      const clear = document.getElementById('clearFilters');
+
+      function dispatchControls() {
+        const ev = new CustomEvent('strategy-controls', {
+          detail: {
+            q: search.value.trim(),
+            risk: risk.value,
+            sort: sort.value
+          }
+        });
+        window.dispatchEvent(ev);
+      }
+      search.addEventListener('input', debounce(dispatchControls, 250));
+      risk.addEventListener('change', dispatchControls);
+      sort.addEventListener('change', dispatchControls);
+      clear.addEventListener('click', () => {
+        search.value = '';
+        risk.value = '';
+        sort.value = 'random';
+        dispatchControls();
+      });
+
+      function debounce(fn, t) {
+        let timer;
+        return (...args) => {
+          clearTimeout(timer);
+          timer = setTimeout(() => fn(...args), t);
+        };
+      }
+    })();
+  </script>
 </body>
 </html>
